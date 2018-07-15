@@ -1,8 +1,10 @@
 <?php
 	require_once("classes/main_class.php");
 	require_once("classes/template_class.php");
-	main::show_errors();
+	require_once("classes/database_class.php");
+	main::display_errors();
 	$template = new template();
+	set_error_handler("main::error_handler");//Default error display function
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,16 +29,16 @@
 						<button type="submit" class="btn btn-default login" name="login">Ieiet</button>
 						<button type="submit" class="btn btn-primary registrate" name="registrate">Reģistrēties</button>
 					</form>
-					<?php
-						if(isset($_POST["login"])){
-
-						}
-						if(isset($_POST["registrate"])){
-
-						}
-					?>
 			</div>
 		</div>
 	</div>
 </body>
 </html>
+<?php
+	if(isset($_POST["login"])){
+		database::create_connection();
+	}
+	if(isset($_POST["registrate"])){
+
+	}
+?>

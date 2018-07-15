@@ -6,4 +6,12 @@
 .login-form .registrate {
   float: right;
 }
+
+.error {
+  position: relative;
+  display: block;
+  width: 30%;
+  margin: 0 auto;
+  top: 50px;
+}
 /*# sourceMappingURL=style.css.map */
