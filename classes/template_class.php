@@ -11,5 +11,10 @@
                 <script src="./js/my.js"> </script>
                 <link href="./css/style.css" rel="stylesheet">';
         }
+        public function show_notification($message){
+            echo "<div class='error'>
+                <p>" .$message. "</p>
+                </div>";
+        }
     }
 ?>
