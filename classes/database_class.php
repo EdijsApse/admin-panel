@@ -1,16 +1,14 @@
 <?php
+	require_once("main_class.php");
     class database{
-        static function create_connection(){
-            $server_name = "localhost";
-			$user_name = "root";
-			$password = "";
-			$db_name = "socia";
-			$connection = new mysqli($server_name, $user_name, $password, $db_name);
-			if ($conn->connect_error) {
-    			die("<h1>Neizdevās pieslēgties datubāzei: </h1>" . $conn->connect_error);
+		public function add_user($user_name,$user_email,$user_password){
+			$connection = main::create_connection();
+			$sql = 'INSERT INTO reg_users (usr_name, usr_email, usr_password)
+					VALUES ("'.$user_name.'","'.$user_email.'","'.$user_password.'")';
+			if($connection->query($sql) === TRUE){
+				header("location:/index.php");
 			}
-			$conn->set_charset("utf8");
-			return $conn;
-        }
+			$connection->close();
+		}
     }
 ?>

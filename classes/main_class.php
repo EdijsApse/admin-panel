@@ -11,7 +11,16 @@
             echo "Kļūdas Paziņojums: $err_msg </br>";
             echo "Skripta darbība apturēta";
             echo "</div>";
-            die();
+            die();//Will stop script execution
         }
+        static function create_connection(){//Will return database connection
+            $server_name = "localhost";
+			$user_name = "root";
+			$password = "";
+			$db_name = "registration_db";
+			$connection = new mysqli($server_name, $user_name, $password, $db_name);
+			$connection->set_charset("utf8");//Set connection charset, so i can get data with Ā, Ē etc
+			return $connection;
+		}
     }
 ?>
