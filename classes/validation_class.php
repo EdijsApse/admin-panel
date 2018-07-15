@@ -4,7 +4,7 @@
         public function is_long_enough($input){
             $template = new template();//      tā jādeklarē klase iekš klases???????
             if(strlen($input) == 0){
-                $template->show_notification("Lauks nedrīkst būt tukšs!");
+                $template->show_notification("Visiem laukiem jābūt aizpildītiem!");
                 die();//So wont check even next values
             }
             else if(strlen($input) <= 3){

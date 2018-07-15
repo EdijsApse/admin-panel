@@ -20,18 +20,18 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-4 col-md-offset-4">
-					<form action="registration.php" class="login-form" method="POST">
+					<form action="registration.php" class="login-form" method="POST" novalidate>
                         <div class="form-group">
 						  <label for="email">Lietotāja vārds:</label>
 						  <input type="text" class="form-control" id="user_name" name="user_name">
 						</div>
                         <div class="form-group">
 						  <label for="email">E-Pasta Adrese:</label>
-						  <input type="email" class="form-control" id="email" name="email">
+						  <input type="email" class="form-control" id="email" name="email" autocomplete="email">
 						</div>
 						<div class="form-group">
 						  <label for="pwd">Parole:</label>
-						  <input type="password" class="form-control" id="password" name="password">
+						  <input type="password" class="form-control" id="password" name="password" autocomplete="password">
 						</div>
 						<button type="submit" class="btn btn-primary registrate" name="registrate">Reģistrēties</button>
 					</form>
