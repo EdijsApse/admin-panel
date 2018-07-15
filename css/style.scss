@@ -12,3 +12,26 @@
     margin:0 auto;
     top:50px;
 }
+.header{
+    position: relative;
+    display: inline-block;
+    width:100%;
+    margin:5px;
+    form{
+        width: 300px;
+        margin: 0;
+        padding: 0;
+        float: right;
+        .user_detail{
+            display:block;
+            width: 50%;
+            margin:0px auto;
+            font-size:18px;
+        }
+        button{
+            position: relative;
+            display: block;
+            margin:0px auto;
+        }
+    }
+}
