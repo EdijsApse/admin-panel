@@ -1,6 +1,7 @@
 .login-form {
   position: relative;
   top: 50px;
+  font-family: "Montserrat", sans-serif;
 }
 
 .login-form .registrate {
@@ -13,32 +14,75 @@
   width: 30%;
   margin: 0 auto;
   top: 50px;
+  font-family: "Montserrat", sans-serif;
 }
 
-.header {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  margin: 5px;
+.right-sidebar {
+  width: 98%;
+  margin: 0px auto;
+  margin-top: 5px;
+  padding-bottom: 5px;
+  -webkit-box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
+  box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
+  border-radius: 3px;
+  background-color: #FFF;
+  text-align: center;
 }
 
-.header form {
-  width: 300px;
+.right-sidebar h3 {
   margin: 0;
+  padding: 2%;
+  background-color: #EA2027;
+  font-family: "Montserrat", sans-serif;
+  color: #FFF;
+  border-radius: 3px 3px 0px 0px;
+}
+
+.right-sidebar p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  margin: 3%;
   padding: 0;
-  float: right;
 }
 
-.header form .user_detail {
+.right-sidebar img {
   display: block;
-  width: 50%;
+  width: 75%;
+  padding: 5px;
   margin: 0px auto;
-  font-size: 18px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
+  box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
 }
 
-.header form button {
-  position: relative;
-  display: block;
-  margin: 0px auto;
+.right-sidebar img:hover {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.right-sidebar form button {
+  background-color: #e51212;
+  border: none;
+  outline: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.right-sidebar form button:hover {
+  background-color: #fc3f45;
+  border: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.right-sidebar form button:focus {
+  outline: none !important;
+  background-color: #fc3f45 !important;
 }
 /*# sourceMappingURL=style.css.map */

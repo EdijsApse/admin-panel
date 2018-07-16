@@ -22,14 +22,14 @@
 </head>
 <body>
 	<div class="container-fluid">
-        <div class="header">
-            <form method="POST">
-                <div class="user_detail">
-                    <p>Lietotājs:<b><?php echo $_SESSION["user"];?></b></p>
-                    <p>Tiesības:<b><?php echo $_SESSION["role"];?></b></p>
-                </div>
-                <button class="btn btn-danger btn-md" type="submit" formmethod="post" name="logout">Iziet <span class="glyphicon glyphicon-log-out"></span></button>
-            </form>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6"></div>
+            <div class="col-md-3">
+                <?php 
+                    $template->get_right_sidebar($_SESSION["user"],$_SESSION["email"],$_SESSION["password"],$_SESSION["image"],$_SESSION["regdate"],$_SESSION["role"]);
+                ?>
+            </div>
         </div>
         <div class="row">
             
