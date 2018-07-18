@@ -25,10 +25,20 @@
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                <p id="test"></p>
+                <div class="main">
+                    <?php
+                        if(isset($_SESSION["role"])){
+                            $role = $_SESSION["role"];
+                        }
+                        else{
+                            $role = "Guest";
+                        }
+                        $database->get_all_users($role);
+                    ?>
+                </div>
             </div>
             <div class="col-md-3">
-                <?php 
+                <?php
                     $template->get_right_sidebar($_SESSION["user"],$_SESSION["email"],$_SESSION["password"],$_SESSION["image"],$_SESSION["regdate"],$_SESSION["role"]);
                 ?>
             </div>

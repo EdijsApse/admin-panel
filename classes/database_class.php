@@ -53,5 +53,18 @@
 				}
 				$connection->close();
 			}
+			public function get_all_users($user_role){
+				$connection = main::create_connection();
+				$template = new template();
+				$sql = "SELECT usr_name, usr_image
+						FROM reg_users;";
+				$users = $connection->query($sql);
+				if($users->num_rows >= 1){
+					while($user = $users->fetch_assoc()){
+						$template->show_all_users($user["usr_name"], $user["usr_image"],$user_role);
+					}
+				}
+				$connection->close();
+			}
     }
 ?>

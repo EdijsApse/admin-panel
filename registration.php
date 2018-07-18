@@ -26,7 +26,7 @@
 						  <input type="text" class="form-control" id="user_name" name="user_name">
 						</div>
                         <div class="form-group">
-						  <label for="email">E-Pasta Adrese:</label>
+						  <label for="email">E-pasta adrese:</label>
 						  <input type="email" class="form-control" id="email" name="email" autocomplete="email">
 						</div>
 						<div class="form-group">

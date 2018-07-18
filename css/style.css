@@ -19,6 +19,14 @@
   background-color: #fc3f45 !important;
 }
 
+.main .user .controls #control_form #visit, .main .user .controls #control_form #edit {
+  position: relative;
+  display: block;
+  width: 75%;
+  margin: 5px auto;
+  font-size: 14px;
+}
+
 .login-form {
   position: relative;
   top: 50px;
@@ -116,5 +124,61 @@
 
 .right-sidebar #image_upload_form #file_upload {
   display: none;
+}
+
+.main {
+  position: relative;
+  display: inline-block;
+  width: 98%;
+  padding: 1%;
+}
+
+.main .user {
+  position: relative;
+  display: block;
+  float: left;
+  width: 18%;
+  margin: 1%;
+  -webkit-box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
+  box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
+  border-radius: 3px;
+}
+
+.main .user .user_image {
+  position: relative;
+  width: 98%;
+  margin: 1%;
+}
+
+.main .user .user_image img {
+  width: 100%;
+}
+
+.main .user .user_details {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+.main .user .user_details .user_name {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  padding: 4px;
+  font-size: 20px;
+}
+
+.main .user .controls {
+  position: relative;
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+.main .user .controls #control_form {
+  position: relative;
+  display: inline-block;
+  width: 98%;
+  margin: 0;
+  padding: 0;
 }
 /*# sourceMappingURL=style.css.map */
