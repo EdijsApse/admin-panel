@@ -1,3 +1,24 @@
+.right-sidebar #image_upload_form button, .right-sidebar #log_out_form button {
+  background-color: #e51212;
+  border: none;
+  outline: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  color: #FFF;
+}
+
+.right-sidebar #image_upload_form button:hover, .right-sidebar #log_out_form button:hover {
+  background-color: #fc3f45;
+  border: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.right-sidebar #image_upload_form button:focus, .right-sidebar #log_out_form button:focus {
+  outline: none !important;
+  background-color: #fc3f45 !important;
+}
+
 .login-form {
   position: relative;
   top: 50px;
@@ -45,13 +66,18 @@
   padding: 0;
 }
 
-.right-sidebar img {
+.right-sidebar .image_container {
+  position: relative;
   display: block;
-  width: 75%;
-  padding: 5px;
-  margin: 0px auto;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.right-sidebar .image_container img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 5px auto;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   cursor: pointer;
@@ -60,29 +86,35 @@
   box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
 }
 
-.right-sidebar img:hover {
+.right-sidebar .image_container #edit {
+  position: absolute;
+  display: inline-block;
+  bottom: 0;
+  border: none;
+  right: 0;
+  margin: 4px;
+  padding: 2px;
+  cursor: pointer;
+  color: #FFF;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+}
+
+.right-sidebar .image_container #edit:hover {
   background-color: rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
-.right-sidebar form button {
-  background-color: #e51212;
-  border: none;
+.right-sidebar .image_container #edit:focus {
   outline: none;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
 }
 
-.right-sidebar form button:hover {
-  background-color: #fc3f45;
-  border: none;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-}
-
-.right-sidebar form button:focus {
-  outline: none !important;
-  background-color: #fc3f45 !important;
+.right-sidebar #image_upload_form #file_upload {
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */

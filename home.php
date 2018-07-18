@@ -17,23 +17,22 @@
 <html lang="en">
 <head>
 	<?php
-		$template->get_head("Admin Panel");
+        $template->get_head("Admin Panel");
 	?>
 </head>
 <body>
 	<div class="container-fluid">
         <div class="row">
             <div class="col-md-3"></div>
-            <div class="col-md-6"></div>
+            <div class="col-md-6">
+                <p id="test"></p>
+            </div>
             <div class="col-md-3">
                 <?php 
                     $template->get_right_sidebar($_SESSION["user"],$_SESSION["email"],$_SESSION["password"],$_SESSION["image"],$_SESSION["regdate"],$_SESSION["role"]);
                 ?>
             </div>
         </div>
-        <div class="row">
-            
-		</div>
 	</div>
 </body>
 </html>

@@ -28,10 +28,28 @@
 						$_SESSION["password"] = $user["usr_password"];
 						$_SESSION["regdate"] = $user["usr_regdate"];
 						$_SESSION["image"] = $user["usr_image"];
-						header("location:home.php");
+						header("location:home");
 				}
 				else{
 					$template->show_notification("E-Pasta adrese vai Parole nav derīga");
+				}
+				$connection->close();
+			}
+			public function change_image($user_email,$new_image){
+				$connection = main::create_connection();
+				$template = new template();
+				$sql = 'UPDATE reg_users
+				SET usr_image = "'.$new_image.'"
+				WHERE usr_email = "'.$user_email.'";';
+				$result = $connection->query($sql);
+				if($result === TRUE){
+					session_start();
+					$_SESSION["image"] = $new_image;
+				}
+				else{
+					$template->show_notification("Kļūda mainot datubāzes lauku");
+					echo $connection->error;
+					die();
 				}
 				$connection->close();
 			}

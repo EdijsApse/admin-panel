@@ -20,7 +20,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-4 col-md-offset-4">
-					<form action="registration.php" class="login-form" method="POST" novalidate>
+					<form class="login-form" method="POST" novalidate>
                         <div class="form-group">
 						  <label for="email">Lietotāja vārds:</label>
 						  <input type="text" class="form-control" id="user_name" name="user_name">
