@@ -1,1 +1,1 @@
-var aus_app = angular.module("apmeklejuma_uzskaites_sistema", []);
+var event_app = angular.module("event_app", []);

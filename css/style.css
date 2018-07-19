@@ -222,7 +222,6 @@
 .left-sidebar .calendar_container #calendar tbody .weeks td {
   display: inline-block;
   width: 13%;
-  padding: 0.5% 1% 0.5% 1%;
   margin: 0.5%;
   background-color: #FFF;
   text-align: center;
@@ -231,16 +230,14 @@
 }
 
 .left-sidebar .calendar_container #calendar tbody .weeks td .event {
+  position: relative;
   display: block;
+  top: -4px;
   visibility: hidden;
-  padding: 0;
-  margin: 0;
-  font-size: 14px;
+  padding-bottom: 0px;
+  margin: -4px;
+  font-size: 16px;
   color: #fc3f45;
-}
-
-.left-sidebar .calendar_container #calendar tbody .weeks td::first-of-type {
-  margin-left: 1.5%;
 }
 
 .left-sidebar .calendar_container #calendar tbody .weeks .no_date {
