@@ -1,4 +1,19 @@
-.right-sidebar #image_upload_form button, .right-sidebar #log_out_form button {
+.left-sidebar .calendar_container .calendar_title {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.right_sidebar #image_upload_form button, .right_sidebar #log_out_form button {
   background-color: #e51212;
   border: none;
   outline: none;
@@ -7,14 +22,14 @@
   color: #FFF;
 }
 
-.right-sidebar #image_upload_form button:hover, .right-sidebar #log_out_form button:hover {
+.right_sidebar #image_upload_form button:hover, .right_sidebar #log_out_form button:hover {
   background-color: #fc3f45;
   border: none;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
-.right-sidebar #image_upload_form button:focus, .right-sidebar #log_out_form button:focus {
+.right_sidebar #image_upload_form button:focus, .right_sidebar #log_out_form button:focus {
   outline: none !important;
   background-color: #fc3f45 !important;
 }
@@ -25,6 +40,18 @@
   width: 75%;
   margin: 5px auto;
   font-size: 14px;
+}
+
+.left-sidebar .calendar_container .calendar_title #prev, .left-sidebar .calendar_container .calendar_title #next {
+  cursor: pointer;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.left-sidebar .calendar_container .calendar_title #prev:hover, .left-sidebar .calendar_container .calendar_title #next:hover {
+  color: #dbdbdb;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .login-form {
@@ -46,7 +73,7 @@
   font-family: "Montserrat", sans-serif;
 }
 
-.right-sidebar {
+.right_sidebar {
   width: 98%;
   margin: 0px auto;
   margin-top: 5px;
@@ -58,7 +85,7 @@
   text-align: center;
 }
 
-.right-sidebar h3 {
+.right_sidebar h3 {
   margin: 0;
   padding: 2%;
   background-color: #EA2027;
@@ -67,21 +94,21 @@
   border-radius: 3px 3px 0px 0px;
 }
 
-.right-sidebar p {
+.right_sidebar p {
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
   margin: 3%;
   padding: 0;
 }
 
-.right-sidebar .image_container {
+.right_sidebar .image_container {
   position: relative;
   display: block;
   width: 70%;
   margin: 0 auto;
 }
 
-.right-sidebar .image_container img {
+.right_sidebar .image_container img {
   display: block;
   width: 100%;
   height: 100%;
@@ -94,7 +121,7 @@
   box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
 }
 
-.right-sidebar .image_container #edit {
+.right_sidebar .image_container #edit {
   position: absolute;
   display: inline-block;
   bottom: 0;
@@ -112,18 +139,112 @@
   transition: all 0.3s;
 }
 
-.right-sidebar .image_container #edit:hover {
+.right_sidebar .image_container #edit:hover {
   background-color: rgba(0, 0, 0, 0.2);
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
-.right-sidebar .image_container #edit:focus {
+.right_sidebar .image_container #edit:focus {
   outline: none;
 }
 
-.right-sidebar #image_upload_form #file_upload {
+.right_sidebar #image_upload_form #file_upload {
   display: none;
+}
+
+.left-sidebar {
+  width: 98%;
+  margin: 0px auto;
+  margin-top: 5px;
+  padding-bottom: 5px;
+  -webkit-box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
+  box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
+  border-radius: 3px;
+  background-color: #FFF;
+  text-align: center;
+}
+
+.left-sidebar .calendar_container .calendar_title {
+  width: 100%;
+  text-align: center;
+  padding: 5px 0px;
+  margin: 0;
+  font-size: 22px;
+  font-family: "Montserrat", sans-serif;
+  color: #FFF;
+  background-color: #EA2027;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.left-sidebar .calendar_container #calendar {
+  position: relative;
+  display: block;
+  width: 98%;
+  margin: 1%;
+}
+
+.left-sidebar .calendar_container #calendar tbody {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.left-sidebar .calendar_container #calendar tbody #header {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 36px;
+  background-color: #fc3f45;
+}
+
+.left-sidebar .calendar_container #calendar tbody #header th {
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  width: 13%;
+  margin: 0.5%;
+  font-size: 22px;
+  color: #FFF;
+}
+
+.left-sidebar .calendar_container #calendar tbody #header th:first-of-type {
+  margin-left: 1.5%;
+}
+
+.left-sidebar .calendar_container #calendar tbody .weeks {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.left-sidebar .calendar_container #calendar tbody .weeks td {
+  display: inline-block;
+  width: 13%;
+  padding: 0.5% 1% 0.5% 1%;
+  margin: 0.5%;
+  background-color: #FFF;
+  text-align: center;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.left-sidebar .calendar_container #calendar tbody .weeks td .event {
+  display: block;
+  visibility: hidden;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  color: #fc3f45;
+}
+
+.left-sidebar .calendar_container #calendar tbody .weeks td::first-of-type {
+  margin-left: 1.5%;
+}
+
+.left-sidebar .calendar_container #calendar tbody .weeks .no_date {
+  visibility: hidden;
 }
 
 .main {

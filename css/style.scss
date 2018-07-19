@@ -20,6 +20,15 @@ $button_font: 'Roboto', sans-serif;
     -moz-box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, .4);
     box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, .4);
 }
+%disable_text_selection{
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
 %default_button{
     background-color: $button-color;
     border: none;
@@ -43,6 +52,14 @@ $button_font: 'Roboto', sans-serif;
     margin:5px auto;
     font-size: 14px;
 }
+%prev_next{
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover{
+        color:#dbdbdb;
+        transition: all 0.3s;
+    }
+}
 .login-form{
     position: relative;
     top:50px;
@@ -59,7 +76,7 @@ $button_font: 'Roboto', sans-serif;
     top:50px;
     font-family: $primary_font;
 }
-.right-sidebar{
+.right_sidebar{
     width:98%;
     margin:0px auto;
     margin-top:5px;
@@ -132,6 +149,96 @@ $button_font: 'Roboto', sans-serif;
     #log_out_form{
         button{
             @extend %default_button;
+        }
+    }
+}
+.left-sidebar{
+    width:98%;
+    margin:0px auto;
+    margin-top:5px;
+    padding-bottom: 5px;
+    @include box-shadow();
+    @include all-border-corners(3px);
+    background-color: #FFF;
+    text-align: center;
+    .calendar_container{
+        .calendar_title{
+            width:100%;
+            text-align: center;
+            padding: 5px 0px;
+            margin: 0;
+            font-size:22px;
+            font-family: $primary_font;
+            color:#FFF;
+            background-color: $primary_color;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            @extend %disable_text_selection;
+            #prev{
+                @extend %prev_next;
+            }
+            #next{
+                @extend %prev_next;
+            }
+        }
+        #calendar{
+            position:relative;
+            display:block;
+            width:98%;
+            margin:1%;
+            tbody{
+                position:relative;
+                display:block;
+                width:100%;
+                #header{
+                    position:relative;
+                    display:block;
+                    width:100%;
+                    height:36px;
+                    background-color:$secondary_color;
+                    th{
+                        display:inline-block;
+                        height:30px;
+                        line-height:30px;
+                        width:13%;
+                        margin:0.5%;
+                        font-size:22px;
+                        color:#FFF;
+                        &:first-of-type{
+                            margin-left:1.5%;
+                        }
+                    }
+                }
+                .weeks{
+                    position:relative;
+                    display:block;
+                    width:100%;
+                    td{
+                        display:inline-block;
+                        width:13%;
+                        padding:0.5% 1% 0.5% 1%;
+                        margin:0.5%;
+                        background-color:#FFF;
+                        text-align:center;
+                        font-size:22px;
+                        cursor:pointer;
+                        .event{
+                            display:block;
+                            visibility:hidden;
+                            padding:0;
+                            margin:0;
+                            font-size:14px;
+                            color:$secondary_color;
+                        }
+                        &::first-of-type{
+                            margin-left:1.5%;
+                        }
+                    }
+                    .no_date{
+                        visibility:hidden;
+                    }
+                }
+            }
         }
     }
 }

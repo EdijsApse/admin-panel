@@ -59,10 +59,28 @@
 				$sql = "SELECT usr_name, usr_image
 						FROM reg_users;";
 				$users = $connection->query($sql);
-				if($users->num_rows >= 1){
+				if($users->num_rows > 0){
 					while($user = $users->fetch_assoc()){
 						$template->show_all_users($user["usr_name"], $user["usr_image"],$user_role);
 					}
+				}
+				$connection->close();
+			}
+			public function get_events($year,$month){
+				$connection = main::create_connection();
+				$sql = 'SELECT usr_regdate 
+						FROM reg_users
+						WHERE usr_regdate LIKE "%'.$month.'-'.$year.'%";';
+				$reg_date_array = array();
+				$reg_dates = $connection->query($sql);
+				if ($reg_dates->num_rows > 0) {
+					while($row = $reg_dates->fetch_assoc()) {//While there is reg_dates
+						array_push($reg_date_array,$row);//Pusshing reg_date into array
+					}
+					print_r(json_encode($reg_date_array));//Returning array as JSON object
+				}
+				else{
+					echo $connection->error;
 				}
 				$connection->close();
 			}

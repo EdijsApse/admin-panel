@@ -8,8 +8,11 @@
                 <link href = "./libs/bootstrap/css/bootstrap.css" rel ="stylesheet">
                 <script src="./libs/jQuery/jquery2.1.4.min.js"></script>
                 <script src="./libs/bootstrap/js/bootstrap.js"></script>
+                <script src="./libs/angularJS/angular.min.js"></script>
                 <script src="./js/choose_image.js"></script>
                 <script src="./js/ajax_calls.js"></script>
+                <script src="plugins/js/effects.js"></script>
+                <script src="plugins/js/cal_object.js"></script>
                 <link href="./css/style.css" rel="stylesheet">
                 <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet">';
         }
@@ -19,7 +22,7 @@
                 </div>";
         }
         public function get_right_sidebar($user_name, $email, $password, $image, $reg_date, $role){
-            echo '<div class="right-sidebar">
+            echo '<div class="right_sidebar">
                     <h3 class="text-center">Lietotāja profils</h3>
                     <div class="image_container">
                         <img id="profile_image" class="center-block" src="'.$image.'">
@@ -57,6 +60,9 @@
                        ' </form>
                     </div>
                 </div>';
+        }
+        static function get_left_sidebar(){
+            
         }
     }
 ?>

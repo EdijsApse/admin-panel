@@ -1,0 +1,1 @@
+var aus_app = angular.module("apmeklejuma_uzskaites_sistema", []);
