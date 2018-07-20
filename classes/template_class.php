@@ -21,7 +21,7 @@
                     <p>" .$message. "</p>
                 </div>";
         }
-        public function get_right_sidebar($user_name, $email, $password, $image, $reg_date, $role){
+        public function get_right_sidebar($user_id, $user_name, $email, $password, $image, $reg_date, $role){
             echo '<div class="right_sidebar">
                     <h3 class="text-center">Lietotāja profils</h3>
                     <div class="image_container">
@@ -30,9 +30,13 @@
                             Izvēlēties bildi <span class="glyphicon glyphicon-edit"></span></button>
                         </label>
                     </div>
-                    <form id="image_upload_form" action="image_upload.php" method="POST" enctype="multipart/form-data">
+                    <form id="image_upload_form" action="image_upload" method="POST" enctype="multipart/form-data">
                         <input id="file_upload" name="selected_image" type="file" accept=".jpg, .jpeg, .png" />
                         <button type="submit" class="btn btn_danger" id="change_image" name="change_image">Mainīt Bildi</button>
+                    </form>
+                    <form id="edit_profile_form" action="edit_user" method="POST">
+                        <input id="user_id" name="user_id" value="'.$user_id.'">
+                        <button class="btn btn-danger edit_profile" name="edit">Labot Profilu</button>
                     </form>
                     <p class="text-center">Vārds: '.$user_name.'</p>
                     <p class="text-center">E-pasts: '.$email.'</p>
@@ -44,20 +48,23 @@
                     </form>
                 </div>';
         }
-        public function show_all_users($user_name, $user_image, $user_role){//Vēl viens parametrs ar user_role, lai parbaudītu, vai izvadīt edit pogu vai nē
-           $edit_button = ($user_role == "Guest" ? '':'<button type="submit" id="edit" class="btn btn-danger btn-sm">Labot</button>');
+        public function show_all_users($user_id, $user_name, $user_image, $active_user_role, $user_role, $user_regdate){//Vēl viens parametrs ar user_role, lai parbaudītu, vai izvadīt edit pogu vai nē
+           $edit_button = ($active_user_role == "Guest" ? '':'<button type="submit" id="edit" name="edit" class="btn btn-danger btn-sm">Labot</button>');
             echo '<div class="user">
                     <div class="user_image">
                         <img src="'.$user_image.'"/>
                     </div>
                     <div class="user_details">
-                        <p class="user_name">'.$user_name.'</p>
+                        <p>Lietotājs: '.$user_name.'</p>
+                        <p>Tiesības: '.$user_role.'</p>
+                        <p>Reģistrējies: '.$user_regdate.'</p>
                     </div>
                     <div class="controls">
-                        <form id="control_form">
-                            <button type="submit" id="visit" class="btn btn-primary btn-sm">Apskatīt</button>'
-                            .$edit_button.
-                       ' </form>
+                        <form id="control_form" method="POST" action="edit_user">
+                            <input id="user_id" name="user_id" value="'.$user_id.'">
+                            <button type="submit" id="visit" name="visit" class="btn btn-primary btn-sm">Apskatīt</button>
+                            '.$edit_button.'
+                        </form>
                     </div>
                 </div>';
         }
@@ -81,6 +88,39 @@
                             </tr>
                         </table>
                     </div>
+                </div>';
+        }
+        public function edit_profile($user_name, $user_email){
+            echo '<div class="edit_profile_container">
+                    <h1 class="text-center">'.$user_name.'</h1>
+                    <form class="edit_profile">
+                        <div class="form-group">
+                            <label for="name">Vārds:</label>
+                            <input type="text" class="form-control" value="'.$user_name.'" id="name" autocomplete="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-pasta adrese:</label>
+                            <input type="email" class="form-control" value="'.$user_email.'" id="email" autocomplete="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="select_role">Tiesības:</label>
+                            <select class="form-control" id="select_role" name="select_role">
+                                <option>-----Tiesības-----
+                                <option value="admin">Admin</option>
+                                <option value="moderator">Moderator</option>
+                                <option value="guest">Guest</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="new_password">Jaunā parole:</label>
+                            <input type="password" class="form-control" name="new_password" id="new_password" autocomplete="new_password">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm_password">Jaunā parole vēlreiz:</label>
+                            <input type="password" class="form-control" name="confirm_password" id="confirm_password" autocomplete="confirm_password">
+                        </div>
+                        <button class="btn btn-default default_button" name="confirm_changes">Saglabāt</button>
+                    </form>
                 </div>';
         }
     }

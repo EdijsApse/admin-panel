@@ -43,7 +43,7 @@
             </div>
             <div class="col-md-3">
                 <?php
-                    $template->get_right_sidebar($_SESSION["user"],$_SESSION["email"],$_SESSION["password"],$_SESSION["image"],$_SESSION["regdate"],$_SESSION["role"]);
+                    $template->get_right_sidebar($_SESSION["user_id"],$_SESSION["user"],$_SESSION["email"],$_SESSION["password"],$_SESSION["image"],$_SESSION["regdate"],$_SESSION["role"]);
                 ?>
             </div>
         </div>
@@ -56,5 +56,9 @@
     if(isset($_POST["logout"])){
         session_destroy();
         header("location:/");
+    }
+    if(isset($_POST["visit"])){
+        
+        header("location:/user");
     }
 ?>

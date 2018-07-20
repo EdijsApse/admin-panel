@@ -13,7 +13,7 @@
                                   supported by Chrome and Opera */
 }
 
-.right_sidebar #image_upload_form button, .right_sidebar #log_out_form button {
+.right_sidebar #image_upload_form button, .right_sidebar #edit_profile_form button, .right_sidebar #log_out_form button, .main .edit_profile_container .edit_profile .default_button {
   background-color: #e51212;
   border: none;
   outline: none;
@@ -22,14 +22,14 @@
   color: #FFF;
 }
 
-.right_sidebar #image_upload_form button:hover, .right_sidebar #log_out_form button:hover {
+.right_sidebar #image_upload_form button:hover, .right_sidebar #edit_profile_form button:hover, .right_sidebar #log_out_form button:hover, .main .edit_profile_container .edit_profile .default_button:hover {
   background-color: #fc3f45;
   border: none;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
-.right_sidebar #image_upload_form button:focus, .right_sidebar #log_out_form button:focus {
+.right_sidebar #image_upload_form button:focus, .right_sidebar #edit_profile_form button:focus, .right_sidebar #log_out_form button:focus, .main .edit_profile_container .edit_profile .default_button:focus {
   outline: none !important;
   background-color: #fc3f45 !important;
 }
@@ -153,6 +153,14 @@
   display: none;
 }
 
+.right_sidebar #edit_profile_form {
+  margin: 5px 0;
+}
+
+.right_sidebar #edit_profile_form input {
+  display: none;
+}
+
 .left-sidebar {
   width: 98%;
   margin: 0px auto;
@@ -201,6 +209,7 @@
 
 .left-sidebar .calendar_container #calendar tbody #header th {
   display: inline-block;
+  font-family: "Montserrat", sans-serif;
   height: 30px;
   line-height: 30px;
   width: 13%;
@@ -223,6 +232,7 @@
   display: inline-block;
   width: 13%;
   margin: 0.5%;
+  font-family: "Montserrat", sans-serif;
   background-color: #FFF;
   text-align: center;
   font-size: 22px;
@@ -251,11 +261,16 @@
   padding: 1%;
 }
 
+.main .edit_profile_container .edit_profile .default_button {
+  display: block;
+  margin: 0 auto;
+}
+
 .main .user {
   position: relative;
   display: block;
   float: left;
-  width: 18%;
+  width: 31%;
   margin: 1%;
   -webkit-box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
   box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
@@ -278,11 +293,12 @@
   margin: 0;
 }
 
-.main .user .user_details .user_name {
+.main .user .user_details p {
   text-align: center;
   font-family: "Montserrat", sans-serif;
-  padding: 4px;
-  font-size: 20px;
+  padding: 2px;
+  font-size: 16px;
+  margin: 0;
 }
 
 .main .user .controls {
@@ -298,5 +314,9 @@
   width: 98%;
   margin: 0;
   padding: 0;
+}
+
+.main .user .controls #control_form #user_id {
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */

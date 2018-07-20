@@ -146,6 +146,15 @@ $button_font: 'Roboto', sans-serif;
             @extend %default_button;
         }
     }
+    #edit_profile_form{
+        margin:5px 0;
+        input{
+            display: none;
+        }
+        button{
+            @extend %default_button;
+        }
+    }
     #log_out_form{
         button{
             @extend %default_button;
@@ -198,6 +207,7 @@ $button_font: 'Roboto', sans-serif;
                     background-color:$secondary_color;
                     th{
                         display:inline-block;
+                        font-family: $primary_font;
                         height:30px;
                         line-height:30px;
                         width:13%;
@@ -217,6 +227,7 @@ $button_font: 'Roboto', sans-serif;
                         display:inline-block;
                         width:13%;
                         margin:0.5%;
+                        font-family: $primary_font;
                         background-color:#FFF;
                         text-align:center;
                         font-size:22px;
@@ -245,11 +256,20 @@ $button_font: 'Roboto', sans-serif;
     display: inline-block;
     width: 98%;
     padding: 1%;
+    .edit_profile_container{
+        .edit_profile{
+            .default_button{
+                @extend %default_button;
+                display: block;
+                margin:0 auto;
+            }
+        }
+    }
     .user{
         position: relative;
         display: block;
         float: left;
-        width:18%;
+        width:31%;
         margin:1%;
         @include box-shadow();
         @include all-border-corners(3px);
@@ -265,11 +285,12 @@ $button_font: 'Roboto', sans-serif;
             display: block;
             padding: 0;
             margin: 0;
-            .user_name{
+            p{
                 text-align: center;
                 font-family:$primary_font;
-                padding: 4px;
-                font-size: 20px;
+                padding: 2px;
+                font-size: 16px;
+                margin:0;
             }
         }
         .controls{
@@ -283,6 +304,9 @@ $button_font: 'Roboto', sans-serif;
                 width:98%;
                 margin:0;
                 padding: 0;
+                #user_id{
+                    display: none;
+                }
                 #visit{
                     @extend %control_button;
                 }

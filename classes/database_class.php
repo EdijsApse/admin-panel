@@ -15,13 +15,14 @@
 			public function get_user($email, $password){
 				$connection = main::create_connection();
 				$template = new template();
-				$sql = 'SELECT usr_name, usr_email, usr_password, role_name, usr_regdate, usr_image
+				$sql = 'SELECT usr_id, usr_name, usr_email, usr_password, role_name, usr_regdate, usr_image
 						FROM (reg_users INNER JOIN usr_roles ON reg_users.usr_role = usr_roles.role_id)
 						WHERE usr_email="'.$email.'"AND usr_password="'.$password.'"';
 				$result = $connection->query($sql);
 				if($result->num_rows == 1){//Only 1 user will be in db, because email fild is unique
 						$user = $result->fetch_assoc();
 						session_start();
+						$_SESSION["user_id"] = $user["usr_id"];
 						$_SESSION["user"] = $user["usr_name"];
 						$_SESSION["role"] = $user["role_name"];
 						$_SESSION["email"] = $user["usr_email"];
@@ -53,15 +54,15 @@
 				}
 				$connection->close();
 			}
-			public function get_all_users($user_role){
+			public function get_all_users($active_user_role){
 				$connection = main::create_connection();
 				$template = new template();
-				$sql = "SELECT usr_name, usr_image
-						FROM reg_users;";
+				$sql = 'SELECT usr_id, usr_name, role_name, usr_regdate, usr_image
+						FROM (reg_users INNER JOIN usr_roles ON reg_users.usr_role = usr_roles.role_id);';
 				$users = $connection->query($sql);
 				if($users->num_rows > 0){
 					while($user = $users->fetch_assoc()){
-						$template->show_all_users($user["usr_name"], $user["usr_image"],$user_role);
+						$template->show_all_users($user["usr_id"], $user["usr_name"], $user["usr_image"], $active_user_role, $user["role_name"], $user["usr_regdate"]);
 					}
 				}
 				$connection->close();
@@ -83,6 +84,23 @@
 					echo $connection->error;
 				}
 				$connection->close();
+			}
+			public function get_user_to_edit($user_id){
+				$connection = main::create_connection();
+				$template = new template();
+				$sql = 'SELECT usr_id, usr_name, usr_email, usr_password
+						FROM reg_users
+						WHERE usr_id ="'.$user_id.'"';
+				$result = $connection->query($sql);
+				if($result->num_rows != 1){
+					header("location:/home");
+				}
+				else{
+					$user = $result->fetch_assoc();
+					$template->edit_profile(
+						$user["usr_name"],
+						$user["usr_email"]);
+				}
 			}
     }
 ?>
