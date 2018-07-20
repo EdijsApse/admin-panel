@@ -9,9 +9,7 @@ $database = new database();
 $validation = new validation();
 set_error_handler("main::error_handler");//Default error display function
 session_start();
-if(isset($_SESSION["user"])){
-}
-else{
+if(!isset($_SESSION["user"])){
     header("location:/");
 }
 ?>
@@ -24,6 +22,11 @@ else{
 </head>
 <body>
 	<div class="container-fluid">
+        <div class="navbar navbar-inerse">
+            <?php 
+                template::get_menu();
+            ?>
+        </div>
         <div class="row">
             <div class="col-md-3">
                 <?php

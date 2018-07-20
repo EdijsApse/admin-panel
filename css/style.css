@@ -54,6 +54,82 @@
   transition: all 0.3s;
 }
 
+.navbar {
+  margin: 0px;
+  border: none;
+  margin-top: 3px;
+}
+
+.navbar .container-fluid {
+  padding: 0;
+  margin: 0;
+  border-radius: 5px;
+}
+
+.navbar .container-fluid .collapse, .navbar .container-fluid .in, .navbar .container-fluid .navbar-collapse {
+  padding: 0;
+}
+
+.navbar .container-fluid .collapse ul, .navbar .container-fluid .in ul, .navbar .container-fluid .navbar-collapse ul {
+  height: 50px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border-radius: 5px 5px 0px 0px;
+  background-color: #fc3f45;
+}
+
+.navbar .container-fluid .collapse ul .active:first-of-type a, .navbar .container-fluid .in ul .active:first-of-type a, .navbar .container-fluid .navbar-collapse ul .active:first-of-type a {
+  -moz-border-top-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.navbar .container-fluid .collapse ul .active:last-of-type a, .navbar .container-fluid .in ul .active:last-of-type a, .navbar .container-fluid .navbar-collapse ul .active:last-of-type a {
+  -moz-border-top-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.navbar .container-fluid .collapse ul .active a, .navbar .container-fluid .in ul .active a, .navbar .container-fluid .navbar-collapse ul .active a {
+  background-color: #EA2027 !important;
+}
+
+.navbar .container-fluid .collapse ul li, .navbar .container-fluid .in ul li, .navbar .container-fluid .navbar-collapse ul li {
+  width: 20%;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar .container-fluid .collapse ul li:last-of-type a, .navbar .container-fluid .in ul li:last-of-type a, .navbar .container-fluid .navbar-collapse ul li:last-of-type a {
+  -moz-border-top-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.navbar .container-fluid .collapse ul li:first-of-type a, .navbar .container-fluid .in ul li:first-of-type a, .navbar .container-fluid .navbar-collapse ul li:first-of-type a {
+  -moz-border-top-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.navbar .container-fluid .collapse ul li a, .navbar .container-fluid .in ul li a, .navbar .container-fluid .navbar-collapse ul li a {
+  height: 50px;
+  line-height: 20px;
+  font-size: 18px;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  color: #FFF;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.navbar .container-fluid .collapse ul li a:hover, .navbar .container-fluid .in ul li a:hover, .navbar .container-fluid .navbar-collapse ul li a:hover {
+  background-color: #EA2027;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.row {
+  margin-top: 5px;
+}
+
 .login-form {
   position: relative;
   top: 50px;

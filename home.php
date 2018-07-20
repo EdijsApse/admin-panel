@@ -22,6 +22,11 @@
 </head>
 <body>
 	<div class="container-fluid">
+        <div class="navbar navbar-inerse">
+            <?php 
+                template::get_menu();
+            ?>
+        </div>
         <div class="row">
             <div class="col-md-3">
                 <?php

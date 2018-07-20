@@ -20,6 +20,24 @@ $button_font: 'Roboto', sans-serif;
     -moz-box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, .4);
     box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, .4);
 }
+@mixin border-corners-active-first($radius) {
+    -webkit-border-top-left-radius: $radius;
+    -moz-border-top-left-radius: $radius;
+    -ms-border-top-left-radius: $radius;
+    border-top-left-radius: $radius;
+}
+@mixin border-corners-active-last($radius) {
+    -webkit-border-top-right-radius: $radius;
+    -moz-border-top-right-radius: $radius;
+    -ms-border-top-right-radius: $radius;
+    border-top-right-radius: $radius;
+}
+@mixin animation($time) {
+    -webkit-transition: all $time;
+    -moz-transition: all $time;
+    -ms-transition: all $time;
+    transition: all $time;
+}
 %disable_text_selection{
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -59,6 +77,73 @@ $button_font: 'Roboto', sans-serif;
         color:#dbdbdb;
         transition: all 0.3s;
     }
+}
+.navbar{
+    margin:0px;
+    border:none;
+    margin-top:3px;
+    .container-fluid{
+        padding: 0;
+        margin:0;
+        @include all-border-corners(5px);
+        .collapse, .in, .navbar-collapse{
+            padding:0;
+            ul{
+                height:50px;
+                width:100%;
+                padding:0;
+                margin:0;
+                @include top-border-corners(5px);
+                background-color:$secondary_color;
+                .active{
+                    &:first-of-type{
+                        a{
+                            @include  border-corners-active-first(5px);
+                        }
+                    }
+                    &:last-of-type{
+                        a{
+                            @include  border-corners-active-last(5px);
+                        }
+                    }
+                    a{
+                        background-color:$primary-color !important;
+                    }
+                }
+                li{
+                    width:20%;
+                    margin: 0;
+                    padding: 0;
+                    &:last-of-type{
+                        a{
+                            @include  border-corners-active-last(5px);
+                        }
+                    }
+                    &:first-of-type{
+                        a{
+                            @include  border-corners-active-first(5px);
+                        }
+                    }
+                    a{
+                        height: 50px;
+                        line-height: 20px;
+                        font-size:18px;
+                        font-family: $primary_font;
+                        text-align: center;
+                        color:#FFF;
+                        @include  animation(0.5s);
+                        &:hover{
+                            background-color: $primary_color;
+                            @include  animation(0.5s);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.row{
+    margin-top:5px;
 }
 .login-form{
     position: relative;

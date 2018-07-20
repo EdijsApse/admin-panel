@@ -16,6 +16,28 @@
                 <link href="./css/style.css" rel="stylesheet">
                 <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet">';
         }
+        static function get_menu(){
+            echo '<nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-menu">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span> 
+                            </button>
+                        </div>
+                        <div class="collapse navbar-collapse" id="main-menu">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="home">Sākums</a></li>
+                                <li><a href="">Items</a></li>
+                                <li><a href="">Items</a></li> 
+                                <li><a href="">Items</a></li>
+                                <li ><a href="">Items</a></li> 
+                            </ul>
+                        </div>
+                    </div>
+                </nav>';
+        }
         public function show_notification($message){
             echo "<div class='error'>
                     <p>" .$message. "</p>
