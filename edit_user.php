@@ -21,6 +21,10 @@ if(!isset($_SESSION["user"])){
 	?>
 </head>
 <body>
+    <div class="notification">
+        <div class="message_container">
+        </div>
+    </div>
 	<div class="container-fluid">
         <div class="navbar navbar-inerse">
             <?php 

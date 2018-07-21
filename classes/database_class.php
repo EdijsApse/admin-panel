@@ -88,7 +88,7 @@
 			public function get_user_to_edit($user_id){
 				$connection = main::create_connection();
 				$template = new template();
-				$sql = 'SELECT usr_id, usr_name, usr_email, usr_password
+				$sql = 'SELECT usr_id, usr_name, usr_email
 						FROM reg_users
 						WHERE usr_id ="'.$user_id.'"';
 				$result = $connection->query($sql);
@@ -98,6 +98,7 @@
 				else{
 					$user = $result->fetch_assoc();
 					$template->edit_profile(
+						$user["usr_id"],
 						$user["usr_name"],
 						$user["usr_email"]);
 				}
@@ -124,6 +125,26 @@
 				}
 				else{
 					header("location:/home");
+				}
+				$connection->close();
+			}
+			public function change_user_information($user_id, $user_name,$user_email, $user_role, $user_password){
+				$connection = main::create_connection();
+				$template = new template();
+				$sql = 'UPDATE reg_users
+						SET usr_name="'.$user_name.'",
+							usr_email="'.$user_email.'",
+							usr_password="'.$user_password.'",
+							usr_role="'.$user_role.'"
+						WHERE usr_id="'.$user_id.'"';
+				if ($connection->connect_error) {
+					die($template->show_notification("Problēmas pieslēgties datubāzei: " . $conn->connect_error));
+				}		
+				$result = $connection->query($sql);
+				if ($result === TRUE) {
+					$template->show_notification("Lietotāja informācija atjaunota veiksmīgi!");
+				} else {
+					$template->show_notification("Lietotāja informācija netika atjaunota!");
 				}
 				$connection->close();
 			}

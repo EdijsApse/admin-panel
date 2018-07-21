@@ -39,9 +39,10 @@
                 </nav>';
         }
         public function show_notification($message){
-            echo "<div class='error'>
-                    <p>" .$message. "</p>
-                </div>";
+            echo '<span class="glyphicon glyphicon-remove close"></span>
+                <div class="message">
+                    <p>'.$message.'</p>
+                </div>';
         }
         public function get_right_sidebar($user_id, $user_name, $email, $password, $image, $reg_date, $role){
             echo '<div class="right_sidebar">
@@ -115,25 +116,26 @@
                     </div>
                 </div>';
         }
-        public function edit_profile($user_name, $user_email){
+        public function edit_profile($user_id, $user_name, $user_email){
             echo '<div class="edit_profile_container">
                     <h1>'.$user_name.'</h1>
                     <form class="edit_profile">
+                        <input id="profile_id" name="user_id" value="'.$user_id.'">
                         <div class="form-group">
                             <label for="name">Vārds:</label>
-                            <input type="text" class="form-control" value="'.$user_name.'" id="name" autocomplete="name">
+                            <input type="text" class="form-control" value="'.$user_name.'" id="name" autocomplete="name" name="new_name">
                         </div>
                         <div class="form-group">
                             <label for="email">E-pasta adrese:</label>
-                            <input type="email" class="form-control" value="'.$user_email.'" id="email" autocomplete="email">
+                            <input type="email" class="form-control" value="'.$user_email.'" id="email" autocomplete="email" name="new_email">
                         </div>
                         <div class="form-group">
                             <label for="select_role">Tiesības:</label>
-                            <select class="form-control" id="select_role" name="select_role">
-                                <option>-----Tiesības-----
-                                <option value="admin">Admin</option>
-                                <option value="moderator">Moderator</option>
-                                <option value="guest">Guest</option>
+                            <select class="form-control" id="select_role" name="new_role">
+                                <option>-----Tiesības-----</option>
+                                <option value="1">Admin</option>
+                                <option value="2">Moderator</option>
+                                <option value="3">Guest</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -144,7 +146,7 @@
                             <label for="confirm_password">Jaunā parole vēlreiz:</label>
                             <input type="password" class="form-control" name="confirm_password" id="confirm_password" autocomplete="confirm_password">
                         </div>
-                        <button class="btn btn-default default_button" name="confirm_changes">Saglabāt</button>
+                        <button type="button" class="btn btn-default default_button" name="confirm_changes">Saglabāt</button>
                     </form>
                 </div>';
             }

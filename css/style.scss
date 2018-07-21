@@ -78,10 +78,47 @@ $button_font: 'Roboto', sans-serif;
         transition: all 0.3s;
     }
 }
+.notification{
+    position: absolute;
+    display: none;
+    width:20%;
+    top:5px;
+    right:5px;
+    margin: 5px;
+    padding: 5px;
+    box-shadow: 0px 0px 3px 0px #FF0000;
+    background-color: #FFF;
+    z-index:2;
+    @include all-border-corners(3px);
+    .message_container{
+        .close{
+            float: right;
+            font-size: 20px;
+            cursor: pointer;
+            color:#FF0000;
+            opacity: 0.7;
+            @include animation(0.3s);
+            &:hover{
+                opacity: 1;
+                @include animation(0.3s);
+            }
+        }
+        .message{
+            width:95%;
+            p{
+                text-align: justify;
+                margin:5px;
+                font-size:14px;
+                font-family: $primary_font;
+                color: #4f4e4e;
+            }
+        }
+    }
+}
 .navbar{
     margin:0px;
     border:none;
-    margin-top:3px;
+    margin-top:10px;
     .container-fluid{
         padding: 0;
         margin:0;
@@ -356,6 +393,9 @@ $button_font: 'Roboto', sans-serif;
         .edit_profile{
             margin: 5px;
             padding-bottom: 5px;
+            #profile_id{
+                display:none;
+            }
             input:active{
                 border-color: $secondary_color;
             }
