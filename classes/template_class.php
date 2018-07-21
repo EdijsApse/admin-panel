@@ -79,7 +79,7 @@
                     <div class="user_details">
                         <p>Lietotājs: '.$user_name.'</p>
                         <p>Tiesības: '.$user_role.'</p>
-                        <p>Reģistrējies: '.$user_regdate.'</p>
+                        <p>Reģistrējies:<span>'.$user_regdate.'</span></p>
                     </div>
                     <div class="controls">
                         <form id="control_form" method="POST" action="user">
@@ -117,7 +117,7 @@
         }
         public function edit_profile($user_name, $user_email){
             echo '<div class="edit_profile_container">
-                    <h1 class="text-center">'.$user_name.'</h1>
+                    <h1>'.$user_name.'</h1>
                     <form class="edit_profile">
                         <div class="form-group">
                             <label for="name">Vārds:</label>
