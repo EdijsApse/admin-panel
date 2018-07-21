@@ -156,7 +156,7 @@
             :
             '<form class="delete_user">
                 <input id="user_id" name="user_id" value="'.$user_id.'">
-                <button type="button" class="btn btn-default">Dzēst lietotāju</button>
+                <button type="button" class="btn btn-default" name="delete_user">Dzēst lietotāju</button>
             </form>');
             echo '<div class="profile">
                     <h1>'.$user_name.'</h1>

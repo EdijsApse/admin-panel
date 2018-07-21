@@ -32,6 +32,29 @@ $(document).ready(function(){
             }
         })
     })
+    $("button[name='delete_user']").click(function(){
+        var user_id = $("input[name='user_id']").val();
+        $.ajax({
+            method:"POST",
+            url:"ajax_requests.php",
+            data:{
+                purpose:"delete_user",
+                user_id:user_id,
+            },
+            error:function(xhr){
+                $(".notification > .message_container").html(xhr.responseText);
+                $(".notification").fadeIn("fast");
+                add_close_event();
+            },
+            success:function(xhr){
+            },
+            complete:function(xhr){
+                $(".notification > .message_container").html(xhr.responseText);
+                $(".notification").fadeIn("fast");
+                add_close_event();
+            }
+        })
+    })
 })
 function add_close_event(){
     $(".close").click(function(){

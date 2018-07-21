@@ -22,8 +22,8 @@ if(isset($_SESSION["user"])){
                 $template->show_notification("Jaunā parole nesakrīt!");
             }
             break;
-        case "blue":
-            echo "Your favorite color is blue!";
+        case "delete_user":
+                $database->delete_user($_POST["user_id"]);
             break;
         case "green":
             echo "Your favorite color is green!";

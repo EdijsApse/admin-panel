@@ -140,11 +140,22 @@
 				if ($connection->connect_error) {
 					die($template->show_notification("Problēmas pieslēgties datubāzei: " . $conn->connect_error));
 				}		
-				$result = $connection->query($sql);
-				if ($result === TRUE) {
+				if ($connection->query($sql) === TRUE) {
 					$template->show_notification("Lietotāja informācija atjaunota veiksmīgi!");
 				} else {
 					$template->show_notification("Lietotāja informācija netika atjaunota!");
+				}
+				$connection->close();
+			}
+			public function delete_user($user_id){
+				$connection = main::create_connection();
+				$template = new template();
+				$sql = 'DELETE FROM reg_users WHERE usr_id="'.$user_id.'"';
+				if($connection->query($sql) === TRUE){
+					$template->show_notification("Lietotājs izdzēsts veiksmīgi!");
+				}
+				else{
+					$template->show_notification("Lietotājs netika izdzēsts!" . $connection->error);
 				}
 				$connection->close();
 			}
