@@ -82,9 +82,12 @@
                         <p>Reģistrējies: '.$user_regdate.'</p>
                     </div>
                     <div class="controls">
-                        <form id="control_form" method="POST" action="edit_user">
+                        <form id="control_form" method="POST" action="user">
                             <input id="user_id" name="user_id" value="'.$user_id.'">
                             <button type="submit" id="visit" name="visit" class="btn btn-primary btn-sm">Apskatīt</button>
+                        </form>
+                        <form id="control_form" method="POST" action="edit_user">
+                            <input id="user_id" name="user_id" value="'.$user_id.'">
                             '.$edit_button.'
                         </form>
                     </div>
@@ -143,6 +146,41 @@
                         </div>
                         <button class="btn btn-default default_button" name="confirm_changes">Saglabāt</button>
                     </form>
+                </div>';
+            }
+        public function user_profile($active_user_role, $user_id, $user_name, $user_email, $user_password, $user_role, $user_regdate, $user_image){
+            $delete_user =($active_user_role == "Guest" ?
+            ''
+            :
+            '<form class="delete_user">
+                <input id="user_id" name="user_id" value="'.$user_id.'">
+                <button type="button" class="btn btn-default">Dzēst lietotāju</button>
+            </form>');
+            echo '<div class="profile">
+                    <h1>'.$user_name.'</h1>
+                    <div class="profile_image">
+                        <img src="'.$user_image.'"/>
+                    </div>
+                    <div class="profile_details">
+                        <ul>
+                            <li>
+                                <p>Lietotāja vārds:'.$user_name.'</p>
+                            </li>
+                            <li>
+                                <p>Lietotāja e-pasts:<span>'.$user_email.'</span></p>
+                            </li>
+                            <li>
+                                <p>Lietotājs reģistrējās:'.$user_regdate.'</p>
+                            </li>
+                            <li>
+                                <p>Lietotāja tiesības:'.$user_role.'</p>
+                            </li>
+                            <li>
+                                <p>Lietotāja parole:'.str_repeat ('*',strlen ($user_password)).'</p>
+                            </li>
+                        </ul>
+                    </div>
+                    '.$delete_user.'
                 </div>';
         }
     }

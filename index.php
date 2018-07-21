@@ -7,7 +7,7 @@
 	$template = new template();
 	$database = new database();
 	$validation = new validation();
-	set_error_handler("main::error_handler");//Default error display function
+	set_error_handler("main::error_handler");//Default error display functio
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +20,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-4 col-md-offset-4">
-				<form class="login-form" method="POST" novalidate>
+				<form class="login-form" method="POST" action="/" novalidate>
 					<div class="form-group">
 						<label for="email">E-Pasta Adrese:</label>
 						<input type="email" class="form-control" id="email" name="email" autocomplete="email">

@@ -338,9 +338,10 @@ $button_font: 'Roboto', sans-serif;
 }
 .main{
     position: relative;
-    display: inline-block;
+    display: block;
     width: 98%;
-    padding: 1%;
+    padding-top:1%;
+    margin: 0 auto;
     .edit_profile_container{
         .edit_profile{
             .default_button{
@@ -398,6 +399,63 @@ $button_font: 'Roboto', sans-serif;
                 #edit{
                     @extend %control_button;
                 }
+            }
+        }
+    }
+    .profile{
+        display: inline-block;
+        @include box-shadow();
+        h1{
+            background-color: $secondary_color;
+            text-align: center;
+            font-family: $primary_font;
+            color:#FFF;
+            margin: 0;
+            padding: 4px;
+        }
+        .profile_image{
+            position: relative;
+            width:38%;
+            margin:1%;
+            float:left;
+            clear: right;
+            img{
+                @include box-shadow();
+                @include all-border-corners(4px);
+                width: 100%;
+            }
+        }
+        .profile_details{
+            position: relative;
+            width:58%;
+            float: right;
+            margin: 1%;
+            padding: 5px;
+            ul{
+                margin-left: 5px;
+                li{
+                    padding:4px;
+                    p{
+                        font-size: 16px;
+                        font-family: $primary_font;
+                        color:#4f4e4e;
+                        span{
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+        .delete_user{
+            clear: both;
+            #user_id{
+                display: none;
+            }
+            button{
+                @extend %default_button;
+                margin: 5px;
+                font-size: 16px;
+                float: right;
             }
         }
     }

@@ -13,7 +13,7 @@
                                   supported by Chrome and Opera */
 }
 
-.right_sidebar #image_upload_form button, .right_sidebar #edit_profile_form button, .right_sidebar #log_out_form button, .main .edit_profile_container .edit_profile .default_button {
+.right_sidebar #image_upload_form button, .right_sidebar #edit_profile_form button, .right_sidebar #log_out_form button, .main .edit_profile_container .edit_profile .default_button, .main .profile .delete_user button {
   background-color: #e51212;
   border: none;
   outline: none;
@@ -22,14 +22,14 @@
   color: #FFF;
 }
 
-.right_sidebar #image_upload_form button:hover, .right_sidebar #edit_profile_form button:hover, .right_sidebar #log_out_form button:hover, .main .edit_profile_container .edit_profile .default_button:hover {
+.right_sidebar #image_upload_form button:hover, .right_sidebar #edit_profile_form button:hover, .right_sidebar #log_out_form button:hover, .main .edit_profile_container .edit_profile .default_button:hover, .main .profile .delete_user button:hover {
   background-color: #fc3f45;
   border: none;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
-.right_sidebar #image_upload_form button:focus, .right_sidebar #edit_profile_form button:focus, .right_sidebar #log_out_form button:focus, .main .edit_profile_container .edit_profile .default_button:focus {
+.right_sidebar #image_upload_form button:focus, .right_sidebar #edit_profile_form button:focus, .right_sidebar #log_out_form button:focus, .main .edit_profile_container .edit_profile .default_button:focus, .main .profile .delete_user button:focus {
   outline: none !important;
   background-color: #fc3f45 !important;
 }
@@ -332,9 +332,10 @@
 
 .main {
   position: relative;
-  display: inline-block;
+  display: block;
   width: 98%;
-  padding: 1%;
+  padding-top: 1%;
+  margin: 0 auto;
 }
 
 .main .edit_profile_container .edit_profile .default_button {
@@ -394,5 +395,75 @@
 
 .main .user .controls #control_form #user_id {
   display: none;
+}
+
+.main .profile {
+  display: inline-block;
+  -webkit-box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
+  box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
+}
+
+.main .profile h1 {
+  background-color: #fc3f45;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  color: #FFF;
+  margin: 0;
+  padding: 4px;
+}
+
+.main .profile .profile_image {
+  position: relative;
+  width: 38%;
+  margin: 1%;
+  float: left;
+  clear: right;
+}
+
+.main .profile .profile_image img {
+  -webkit-box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
+  box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
+  border-radius: 4px;
+  width: 100%;
+}
+
+.main .profile .profile_details {
+  position: relative;
+  width: 58%;
+  float: right;
+  margin: 1%;
+  padding: 5px;
+}
+
+.main .profile .profile_details ul {
+  margin-left: 5px;
+}
+
+.main .profile .profile_details ul li {
+  padding: 4px;
+}
+
+.main .profile .profile_details ul li p {
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  color: #4f4e4e;
+}
+
+.main .profile .profile_details ul li p span {
+  display: block;
+}
+
+.main .profile .delete_user {
+  clear: both;
+}
+
+.main .profile .delete_user #user_id {
+  display: none;
+}
+
+.main .profile .delete_user button {
+  margin: 5px;
+  font-size: 16px;
+  float: right;
 }
 /*# sourceMappingURL=style.css.map */

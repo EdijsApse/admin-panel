@@ -36,11 +36,7 @@ if(!isset($_SESSION["user"])){
             <div class="col-md-6">
                 <div class="main">
                     <?php
-                        if(isset($_POST["edit"])){
-                            $database->get_user_to_edit($_POST["user_id"]);
-                        }
-                        else{
-                        }
+                        $database->get_user_to_edit($_POST["user_id"]);
                     ?>
                 </div>
             </div>
@@ -55,3 +51,9 @@ if(!isset($_SESSION["user"])){
 <script src="plugins/modules/main.js"></script>
 <script src="plugins/controllers/main.js"></script>
 </html>
+<?php
+    if(isset($_POST["logout"])){
+        session_destroy();
+        header("location:/");
+    }
+?>

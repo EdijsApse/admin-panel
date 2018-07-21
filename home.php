@@ -9,7 +9,9 @@
 	$validation = new validation();
     set_error_handler("main::error_handler");//Default error display function
     session_start();
-    if(!isset($_SESSION["user"])){
+    if(isset($_SESSION["user"])){
+    }
+    else{
         header("location:/");
     }
 ?>
@@ -61,9 +63,5 @@
     if(isset($_POST["logout"])){
         session_destroy();
         header("location:/");
-    }
-    if(isset($_POST["visit"])){
-        
-        header("location:/user");
     }
 ?>

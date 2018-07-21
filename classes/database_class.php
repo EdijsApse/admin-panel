@@ -101,6 +101,31 @@
 						$user["usr_name"],
 						$user["usr_email"]);
 				}
+				$connection->close();
+			}
+			public function get_user_profile($user_id, $active_user_role){
+				$connection = main::create_connection();
+				$template = new template();
+				$sql = 'SELECT usr_id, usr_name, usr_email, usr_password, role_name, usr_regdate, usr_image
+				FROM (reg_users INNER JOIN usr_roles ON reg_users.usr_role = usr_roles.role_id)
+				WHERE usr_id = "'.$user_id.'"';
+				$result = $connection->query($sql);
+				if($result->num_rows == 1){
+					$user = $result->fetch_assoc();
+					$template->user_profile(
+						$active_user_role,
+						$user["usr_id"],
+						$user["usr_name"],
+						$user["usr_email"],
+						$user["usr_password"],
+						$user["role_name"],
+						$user["usr_regdate"],
+						$user["usr_image"]);
+				}
+				else{
+					header("location:/home");
+				}
+				$connection->close();
 			}
     }
 ?>
