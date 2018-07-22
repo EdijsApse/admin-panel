@@ -136,8 +136,8 @@
 				$connection = main::create_connection();
 				$template = new template();
 				$user_arr = array();
-				$sql = 'SELECT usr_id, usr_name, usr_email, usr_role, usr_password
-						FROM reg_users
+				$sql = 'SELECT usr_id, usr_name, usr_email, usr_role, usr_password, role_name
+						FROM (reg_users INNER JOIN usr_roles ON reg_users.usr_role = usr_roles.role_id)
 						WHERE usr_id ="'.$user_id.'"';
 				$result = $connection->query($sql);
 				if($result->num_rows > 0){
@@ -145,6 +145,7 @@
 					$user_arr["user_name"] = $user["usr_name"];
 					$user_arr["user_email"] = $user["usr_email"];
 					$user_arr["user_role"] = $user["usr_role"];
+					$user_arr["role_name"] = $user["role_name"];
 					$user_arr["user_password"] = $user["usr_password"];
 				}
 				else{
@@ -191,6 +192,24 @@
 					$template->show_notification("Lietotāja informācija netika atjaunota!");
 				}
 				$connection->close();
+				if($_SESSION["user_id"] == $user_id){//If loged user changes his info
+					$connection = main::create_connection();
+					$sql = 'SELECT role_name
+							FROM usr_roles
+							WHERE role_id = "'.$user_information_array["user_role"].'"';
+					$result = $connection->query($sql);
+					if($result->num_rows > 0){
+						$role_name = $result->fetch_assoc();
+						$_SESSION["role"] = $role_name["role_name"];
+					}
+					else{
+						$template->show_notification("Šāda loma nepastāv!");
+					}
+					$_SESSION["user"] = $user_information_array["user_name"];
+					$_SESSION["email"] = $user_information_array["user_email"];
+					$_SESSION["password"] = $user_information_array["user_password"];
+					$connection->close();
+				}
 			}
 			public function delete_user($active_user_id,$user_id){
 				$connection = main::create_connection();
