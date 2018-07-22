@@ -132,7 +132,7 @@
                         <div class="form-group">
                             <label for="select_role">Tiesības:</label>
                             <select class="form-control" id="select_role" name="new_role">
-                                <option>-----Tiesības-----</option>
+                                <option value="0">-----Tiesības-----</option>
                                 <option value="1">Admin</option>
                                 <option value="2">Moderator</option>
                                 <option value="3">Guest</option>

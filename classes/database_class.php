@@ -132,17 +132,58 @@
 				}
 				$connection->close();
 			}
+			public function get_user_information($user_id){//ONLY FOR change_user_information function - to compare vals
+				$connection = main::create_connection();
+				$template = new template();
+				$user_arr = array();
+				$sql = 'SELECT usr_id, usr_name, usr_email, usr_role, usr_password
+						FROM reg_users
+						WHERE usr_id ="'.$user_id.'"';
+				$result = $connection->query($sql);
+				if($result->num_rows > 0){
+					$user = $result->fetch_assoc();
+					$user_arr["user_name"] = $user["usr_name"];
+					$user_arr["user_email"] = $user["usr_email"];
+					$user_arr["user_role"] = $user["usr_role"];
+					$user_arr["user_password"] = $user["usr_password"];
+				}
+				else{
+					//Nekad nevajadzētu nostrādāt!!!
+					$template->show_notification("Datubāzē netika atrasts šāds lietotājs");
+					die();
+				}
+				$connection->close();
+				return $user_arr;
+			}
 			public function change_user_information($user_id, $user_name,$user_email, $user_role, $user_password){
 				$connection = main::create_connection();
 				$template = new template();
+				$original_user_info = $this->get_user_information($user_id);
+				$user_information_array = array(
+					"user_name"=>$user_name,
+					"user_email"=>$user_email,
+					"user_role"=>$user_role,
+					"user_password"=>$user_password
+				);
+				if($user_information_array["user_role"] == "0"){
+					$user_information_array["user_role"] = $original_user_info["user_role"];
+				}
+				foreach($user_information_array as $key => $value){
+					if(!empty($value)){//If not empty
+						$user_information_array[$key] = $value;
+					}
+					else{
+						$user_information_array[$key] = $original_user_info[$key];;
+					}
+				}
 				$sql = 'UPDATE reg_users
-						SET usr_name="'.$user_name.'",
-							usr_email="'.$user_email.'",
-							usr_password="'.$user_password.'",
-							usr_role="'.$user_role.'"
+						SET usr_name="'.$user_information_array["user_name"].'",
+							usr_email="'.$user_information_array["user_email"].'",
+							usr_password="'.$user_information_array["user_password"].'",
+							usr_role="'.$user_information_array["user_role"].'"
 						WHERE usr_id="'.$user_id.'"';
 				if ($connection->connect_error) {
-					die($template->show_notification("Problēmas pieslēgties datubāzei: " . $conn->connect_error));
+					die($template->show_notification("Problēmas pieslēgties datubāzei: " . $connection->connect_error));
 				}		
 				if ($connection->query($sql) === TRUE) {
 					$template->show_notification("Lietotāja informācija atjaunota veiksmīgi!");
