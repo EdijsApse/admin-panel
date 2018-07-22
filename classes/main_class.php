@@ -1,5 +1,6 @@
 <?php
     require_once("database_class.php");
+    require_once("template_class.php");
     class main{
         static function display_errors(){
             error_reporting(E_ALL);

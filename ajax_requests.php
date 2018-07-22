@@ -1,9 +1,12 @@
 <?php
 require_once("classes/database_class.php");
 require_once("classes/template_class.php");
+require_once("classes/validation_class.php");
 main::display_errors();
 $database = new database();
 $template = new template();
+$validation = new validation();
+$main = new main();
 set_error_handler("main::error_handler");//Default error display function
 session_start();
 if(isset($_SESSION["user"])){
@@ -23,13 +26,23 @@ if(isset($_SESSION["user"])){
             }
             break;
         case "delete_user":
-                $database->delete_user($_POST["user_id"]);
+                $database->delete_user($_SESSION["user_id"],$_POST["user_id"]);
             break;
-        case "green":
-            echo "Your favorite color is green!";
+        case "registrate":
+            $user_input = [$_POST["user_name"],$_POST["user_email"],$_POST["user_password"]];
+            foreach($user_input as $value){
+                $validation->is_long_enough($value);
+            }
+            $is_email = $validation->is_email($_POST["user_email"]);
+            if($is_email){
+                $database->add_user($_POST["user_name"],$_POST["user_email"],$_POST["user_password"]);
+            }
+            else{
+                $template->show_notification("E-pasta adrese nav derīga!");
+            }
             break;
         default:
-            echo "Your favorite color is neither red, blue, nor green!";
+            echo "";
     }
 }
 else{

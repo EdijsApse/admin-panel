@@ -84,15 +84,24 @@ $button_font: 'Roboto', sans-serif;
     width:20%;
     top:5px;
     right:5px;
-    margin: 5px;
     padding: 5px;
     box-shadow: 0px 0px 3px 0px #FF0000;
     background-color: #FFF;
     z-index:2;
     @include all-border-corners(3px);
     .message_container{
+        position: relative;
+        display: block;
+        width:100%;
+        margin: 0;
+        padding: 0;
         .close{
+            position: relative;
+            display: block;
             float: right;
+            top:-10px;
+            margin: 0;
+            padding: 0;
             font-size: 20px;
             cursor: pointer;
             color:#FF0000;
@@ -105,9 +114,11 @@ $button_font: 'Roboto', sans-serif;
         }
         .message{
             width:95%;
+            margin: 5px;
             p{
-                text-align: justify;
-                margin:5px;
+                text-align: left;
+                margin:10px;
+                letter-spacing: 1px;
                 font-size:14px;
                 font-family: $primary_font;
                 color: #4f4e4e;
@@ -472,6 +483,7 @@ $button_font: 'Roboto', sans-serif;
         }
     }
     .profile{
+        width:100%;
         display: inline-block;
         @include box-shadow();
         h1{

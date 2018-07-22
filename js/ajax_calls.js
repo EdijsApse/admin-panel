@@ -55,6 +55,33 @@ $(document).ready(function(){
             }
         })
     })
+    $("button[name='registrate']").click(function(){
+        var user_name = $("#user_name").val(),
+            user_email = $("#email").val(),
+            user_password = $("#password").val();
+        $.ajax({
+            method:"POST",
+            url:"ajax_requests.php",
+            data:{
+                purpose:"registrate",
+                user_name:user_name,
+                user_email:user_email,
+                user_password:user_password
+            },
+            error:function(xhr){
+                $(".notification > .message_container").html(xhr.responseText);
+                $(".notification").fadeIn("fast");
+                add_close_event();
+            },
+            success:function(xhr){
+            },
+            complete:function(xhr){
+                $(".notification > .message_container").html(xhr.responseText);
+                $(".notification").fadeIn("fast");
+                add_close_event();
+            }
+        })
+    })
 })
 function add_close_event(){
     $(".close").click(function(){

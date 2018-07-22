@@ -4,11 +4,15 @@
     class database{
 			public function add_user($user_name,$user_email,$user_password){
 				$connection = main::create_connection();
+				$template = new template();
 				$current_date = date("Y-m-d");
 				$sql = 'INSERT INTO reg_users (usr_name, usr_email, usr_password, usr_regdate)
 						VALUES ("'.$user_name.'","'.$user_email.'","'.$user_password.'","'.$current_date.'")';
 				if($connection->query($sql) === TRUE){
-					header("location:/");//Back to index
+					$template->show_notification("Esi veiksmīgi reģistrējies!");
+				}
+				else{
+					$template->show_notification("Izskatās ka šāds lietotājs jau eksistē!");
 				}
 				$connection->close();
 			}
@@ -147,15 +151,18 @@
 				}
 				$connection->close();
 			}
-			public function delete_user($user_id){
+			public function delete_user($active_user_id,$user_id){
 				$connection = main::create_connection();
 				$template = new template();
 				$sql = 'DELETE FROM reg_users WHERE usr_id="'.$user_id.'"';
 				if($connection->query($sql) === TRUE){
+					if($active_user_id == $user_id){
+						session_destroy();
+					}
 					$template->show_notification("Lietotājs izdzēsts veiksmīgi!");
 				}
 				else{
-					$template->show_notification("Lietotājs netika izdzēsts!" . $connection->error);
+					$template->show_notification("Lietotājs netika izdzēsts!");
 				}
 				$connection->close();
 			}
