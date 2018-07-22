@@ -45,6 +45,15 @@
                 </div>';
         }
         public function get_right_sidebar($user_id, $user_name, $email, $password, $image, $reg_date, $role){
+            if($role == "Admin" || $role == "Moderator"){
+                $edit_profile = '<form id="edit_profile_form" action="edit_user" method="POST">
+                                    <input id="user_id" name="user_id" value="'.$user_id.'">
+                                    <button class="btn btn-danger edit_profile" name="edit">Labot Profilu</button>
+                                </form>';
+            }
+            else{
+                $edit_profile = '';
+            }
             echo '<div class="right_sidebar">
                     <h3 class="text-center">Lietotāja profils</h3>
                     <div class="image_container">
@@ -57,10 +66,7 @@
                         <input id="file_upload" name="selected_image" type="file" accept=".jpg, .jpeg, .png" />
                         <button type="submit" class="btn btn_danger" id="change_image" name="change_image">Mainīt Bildi</button>
                     </form>
-                    <form id="edit_profile_form" action="edit_user" method="POST">
-                        <input id="user_id" name="user_id" value="'.$user_id.'">
-                        <button class="btn btn-danger edit_profile" name="edit">Labot Profilu</button>
-                    </form>
+                    '.$edit_profile.'
                     <p class="text-center">Vārds: '.$user_name.'</p>
                     <p class="text-center">E-pasts: '.$email.'</p>
                     <p class="text-center">Tiesības: '.$role.'</p>
@@ -72,8 +78,13 @@
                 </div>';
         }
         public function show_all_users($user_id, $user_name, $user_image, $active_user_role, $user_role, $user_regdate){//Vēl viens parametrs ar user_role, lai parbaudītu, vai izvadīt edit pogu vai nē
-           $edit_button = ($active_user_role == "Guest" ? '':'<button type="submit" id="edit" name="edit" class="btn btn-danger btn-sm">Labot</button>');
-            echo '<div class="user">
+           if($active_user_role == "Admin"){
+               $edit_button = '<button type="submit" id="edit" name="edit" class="btn btn-danger btn-sm">Labot</button>';
+           } 
+           else{
+               $edit_button = '';
+           }
+           echo '<div class="user">
                     <div class="user_image">
                         <img src="'.$user_image.'"/>
                     </div>
@@ -140,7 +151,7 @@
                         </div>
                         <div class="form-group">
                             <label for="new_password">Jaunā parole:</label>
-                            <input type="password" class="form-control" name="new_password" id="new_password" autocomplete="new_password">
+                            <input type="password" class="form-control" value="" name="new_password" id="new_password" autocomplete="new_password">
                         </div>
                         <div class="form-group">
                             <label for="confirm_password">Jaunā parole vēlreiz:</label>
