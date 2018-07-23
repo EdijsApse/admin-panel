@@ -159,6 +159,65 @@ function calendar_object(){
 			}
 		});
 	}
+	this.get_day_event = function(selected_day){
+		//Without .toString(), js .length propertie isnt working
+		var date = converter(selected_day.toString()),
+			month = this.get_month()+1,
+			year = this.get_year();
+			month = converter(month.toString());
+		$.ajax({
+			method:"POST",
+			url:"ajax_requests.php",
+			data:{
+				purpose:"day_event",
+				correct_date:year + "-" + month + "-" + date
+			},
+			success: function(){
+				
+			},
+			error: function(){
+				
+			},
+			complete: function(xhr){
+				var user_arr,
+					exit_script = false;
+				try{
+					user_arr = JSON.parse(xhr.responseText);
+				}
+				catch(errors){
+					$(".notification > .message_container").html(xhr.responseText);
+                	$(".notification").fadeIn("fast");
+					add_close_event();
+					exit_script = true;
+				}
+				if(exit_script != true){
+					for(var i=0; i<user_arr.length; i++){
+						var user = document.createElement("div"),
+							image_container = document.createElement("div"),
+							image = document.createElement("img"),
+							user_detail = document.createElement("div"),
+							name = document.createElement("p"),
+							role = document.createElement("p");
+							$(image_container).addClass("user_image");
+							$(image).attr("src",user_arr[i].usr_image);
+							$(user_detail).addClass("user_details");
+							$(name).html(user_arr[i].usr_name);
+							$(role).html(user_arr[i].role_name);
+							$(user_detail).append(name,role);
+							$(image_container).append(image);
+							$(user).addClass("user");
+							$(user).append(image_container).append(user_detail);
+							$(".days_registered_users").append(user);
+					}
+					$(".event_container").fadeIn("fast");
+					$(".event_container").click(function(){
+						$(".days_registered_users > .user").remove();
+						$(this).fadeOut();
+					});
+				}
+			}
+		});
+	}
 }
 function converter(number){//Adds 0 in front of number if needed (FOR database Only)
 	var date = number;

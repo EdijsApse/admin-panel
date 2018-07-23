@@ -169,14 +169,6 @@
 				if($user_information_array["user_role"] == "0"){
 					$user_information_array["user_role"] = $original_user_info["user_role"];
 				}
-				foreach($user_information_array as $key => $value){
-					if(!empty($value)){//If not empty
-						$user_information_array[$key] = $value;
-					}
-					else{
-						$user_information_array[$key] = $original_user_info[$key];;
-					}
-				}
 				$sql = 'UPDATE reg_users
 						SET usr_name="'.$user_information_array["user_name"].'",
 							usr_email="'.$user_information_array["user_email"].'",
@@ -225,6 +217,26 @@
 					$template->show_notification("Lietotājs netika izdzēsts!");
 				}
 				$connection->close();
+			}
+			public function get_specific_day_event($date){
+				$connection = main::create_connection();
+				$template = new template();
+				$sql = 'SELECT usr_name, role_name, usr_image
+						FROM (reg_users INNER JOIN usr_roles ON reg_users.usr_role = usr_roles.role_id)
+						WHERE usr_regdate="'.$date.'"';
+				$user_arr = array();
+				$result = $connection->query($sql);
+				if ($result->num_rows > 0){
+					while($user = $result->fetch_assoc()){
+						array_push($user_arr, $user);
+					};
+				}
+				else{
+					$template->show_notification("Šajā datumā lietotāju nav!");
+					die();
+				}
+				$connection->close();
+				print_r(json_encode($user_arr));//So i can decode in JS
 			}
     }
 ?>

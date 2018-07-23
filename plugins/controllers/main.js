@@ -2,6 +2,7 @@ event_app.controller("main_controller", function($scope){
 	var calendar = new calendar_object();
 	$scope.get_event = function(date){// 1 - Passing date for title, 2 - 
 		$scope.event_title = $scope.year + " Gada " + date + " " + $scope.month;//For correct title
+		calendar.get_day_event(date);
 	}
 	$scope.next_month = function(){
 		calendar.set_month(1);

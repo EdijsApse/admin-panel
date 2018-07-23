@@ -128,6 +128,12 @@
                 </div>';
         }
         public function edit_profile($user_id, $user_name, $user_email){
+            if($_SESSION["role"] == "Moderator"){//Atrast labāku veidu?
+                $show_select = "none";
+            }
+            else{
+                $show_select = "block";
+            }
             echo '<div class="edit_profile_container">
                     <h1>'.$user_name.'</h1>
                     <form class="edit_profile">
@@ -140,7 +146,7 @@
                             <label for="email">E-pasta adrese:</label>
                             <input type="email" class="form-control" value="'.$user_email.'" id="email" autocomplete="email" name="new_email">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="display:'.$show_select.'">
                             <label for="select_role">Tiesības:</label>
                             <select class="form-control" id="select_role" name="new_role">
                                 <option value="0">-----Tiesības-----</option>

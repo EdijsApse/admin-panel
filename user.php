@@ -21,6 +21,10 @@
 	?>
 </head>
 <body>
+    <div class="event_container">
+        <div class="days_registered_users">
+        </div>
+    </div>
     <div class="notification">
         <div class="message_container">
         </div>

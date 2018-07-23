@@ -27,7 +27,11 @@
         <div class="message_container">
         </div>
     </div>
-	<div class="container-fluid">
+    <div class="event_container">
+        <div class="days_registered_users">
+        </div>
+    </div>
+    <div class="container-fluid">
         <div class="navbar navbar-inerse">
             <?php 
                 template::get_menu();

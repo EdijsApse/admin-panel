@@ -85,8 +85,11 @@ if(isset($_SESSION["user"])){
             $is_email = $validation->is_email($_POST["user_email"]);
             $database->add_user($_POST["user_name"],$_POST["user_email"],$_POST["user_password"]);
             break;
+        case "day_event":
+            $database->get_specific_day_event($_POST["correct_date"]);
+            break;
         default:
-            echo "";
+            die();
     }
 }
 else{
