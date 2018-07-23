@@ -21,7 +21,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-4 col-md-offset-4">
-					<form class="login-form" novalidate>
+					<form class="registration-form" novalidate>
                         <div class="form-group">
 						  <label for="email">Lietotāja vārds:</label>
 						  <input type="text" class="form-control" id="user_name" name="user_name">
@@ -34,7 +34,10 @@
 						  <label for="pwd">Parole:</label>
 						  <input type="password" class="form-control" id="password" name="password" autocomplete="password">
 						</div>
-						<button type="button" class="btn btn-primary registrate" name="registrate">Reģistrēties</button>
+						<div class="button_container">
+							<button type="button" class="btn btn-primary registrate_user" name="registrate">Reģistrēties</button>
+							<button type="button" class="btn btn-default registrate"><a href="/">Ieiet</a></button>
+						</div>
 					</form>
 			</div>
 		</div>

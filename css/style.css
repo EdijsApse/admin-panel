@@ -13,7 +13,7 @@
                                   supported by Chrome and Opera */
 }
 
-.right_sidebar #image_upload_form button, .right_sidebar #edit_profile_form button, .right_sidebar #log_out_form button, .main .edit_profile_container .edit_profile .default_button, .main .profile .delete_user button {
+.login-form .button_container .registrate_user, .registration-form .button_container .registrate_user, .login-form .button_container .login, .registration-form .button_container .login, .right_sidebar #image_upload_form button, .right_sidebar #edit_profile_form button, .right_sidebar #log_out_form button, .main .edit_profile_container .edit_profile .default_button, .main .user .controls #control_form #visit, .main .user .controls #control_form #edit, .main .profile .delete_user button {
   background-color: #e51212;
   border: none;
   outline: none;
@@ -22,14 +22,14 @@
   color: #FFF;
 }
 
-.right_sidebar #image_upload_form button:hover, .right_sidebar #edit_profile_form button:hover, .right_sidebar #log_out_form button:hover, .main .edit_profile_container .edit_profile .default_button:hover, .main .profile .delete_user button:hover {
+.login-form .button_container .registrate_user:hover, .registration-form .button_container .registrate_user:hover, .login-form .button_container .login:hover, .registration-form .button_container .login:hover, .right_sidebar #image_upload_form button:hover, .right_sidebar #edit_profile_form button:hover, .right_sidebar #log_out_form button:hover, .main .edit_profile_container .edit_profile .default_button:hover, .main .user .controls #control_form #visit:hover, .main .user .controls #control_form #edit:hover, .main .profile .delete_user button:hover {
   background-color: #fc3f45;
   border: none;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
-.right_sidebar #image_upload_form button:focus, .right_sidebar #edit_profile_form button:focus, .right_sidebar #log_out_form button:focus, .main .edit_profile_container .edit_profile .default_button:focus, .main .profile .delete_user button:focus {
+.login-form .button_container .registrate_user:focus, .registration-form .button_container .registrate_user:focus, .login-form .button_container .login:focus, .registration-form .button_container .login:focus, .right_sidebar #image_upload_form button:focus, .right_sidebar #edit_profile_form button:focus, .right_sidebar #log_out_form button:focus, .main .edit_profile_container .edit_profile .default_button:focus, .main .user .controls #control_form #visit:focus, .main .user .controls #control_form #edit:focus, .main .profile .delete_user button:focus {
   outline: none !important;
   background-color: #fc3f45 !important;
 }
@@ -52,6 +52,10 @@
   color: #dbdbdb;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+}
+
+body {
+  background-image: url("/images/background.png");
 }
 
 .event_container {
@@ -167,15 +171,17 @@
 }
 
 .navbar {
-  margin: 0px;
+  position: relative;
+  display: block;
+  width: 60%;
+  margin: 0px auto;
   border: none;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .navbar .container-fluid {
   padding: 0;
   margin: 0;
-  border-radius: 5px;
 }
 
 .navbar .container-fluid .collapse, .navbar .container-fluid .in, .navbar .container-fluid .navbar-collapse {
@@ -183,22 +189,10 @@
 }
 
 .navbar .container-fluid .collapse ul, .navbar .container-fluid .in ul, .navbar .container-fluid .navbar-collapse ul {
-  height: 50px;
+  height: auto;
   width: 100%;
-  padding: 0;
   margin: 0;
-  border-radius: 5px 5px 0px 0px;
   background-color: #fc3f45;
-}
-
-.navbar .container-fluid .collapse ul .active:first-of-type a, .navbar .container-fluid .in ul .active:first-of-type a, .navbar .container-fluid .navbar-collapse ul .active:first-of-type a {
-  -moz-border-top-left-radius: 5px;
-  border-top-left-radius: 5px;
-}
-
-.navbar .container-fluid .collapse ul .active:last-of-type a, .navbar .container-fluid .in ul .active:last-of-type a, .navbar .container-fluid .navbar-collapse ul .active:last-of-type a {
-  -moz-border-top-right-radius: 5px;
-  border-top-right-radius: 5px;
 }
 
 .navbar .container-fluid .collapse ul .active a, .navbar .container-fluid .in ul .active a, .navbar .container-fluid .navbar-collapse ul .active a {
@@ -206,25 +200,15 @@
 }
 
 .navbar .container-fluid .collapse ul li, .navbar .container-fluid .in ul li, .navbar .container-fluid .navbar-collapse ul li {
-  width: 20%;
-  margin: 0;
+  width: 18%;
+  margin: 1%;
   padding: 0;
 }
 
-.navbar .container-fluid .collapse ul li:last-of-type a, .navbar .container-fluid .in ul li:last-of-type a, .navbar .container-fluid .navbar-collapse ul li:last-of-type a {
-  -moz-border-top-right-radius: 5px;
-  border-top-right-radius: 5px;
-}
-
-.navbar .container-fluid .collapse ul li:first-of-type a, .navbar .container-fluid .in ul li:first-of-type a, .navbar .container-fluid .navbar-collapse ul li:first-of-type a {
-  -moz-border-top-left-radius: 5px;
-  border-top-left-radius: 5px;
-}
-
 .navbar .container-fluid .collapse ul li a, .navbar .container-fluid .in ul li a, .navbar .container-fluid .navbar-collapse ul li a {
-  height: 50px;
-  line-height: 20px;
+  height: auto;
   font-size: 18px;
+  padding: 10px;
   font-family: "Montserrat", sans-serif;
   text-align: center;
   color: #FFF;
@@ -238,18 +222,88 @@
   transition: all 0.5s;
 }
 
+.navbar .container-fluid .collapse ul li a span, .navbar .container-fluid .in ul li a span, .navbar .container-fluid .navbar-collapse ul li a span {
+  margin-right: 5px;
+  font-size: 18px;
+}
+
 .row {
   margin-top: 5px;
 }
 
-.login-form {
-  position: relative;
-  top: 50px;
-  font-family: "Montserrat", sans-serif;
+.row .left {
+  padding-right: 0;
 }
 
-.login-form .registrate {
+.row .right {
+  padding-left: 0;
+}
+
+.login-form, .registration-form {
+  position: relative;
+  top: 100px;
+  font-family: "Montserrat", sans-serif;
+  color: #000;
+  background-color: rgba(100, 100, 100, 0.4);
+  padding: 20px;
+  border-radius: 3px;
+}
+
+.login-form .form-group, .registration-form .form-group {
+  display: block;
+  width: 80%;
+  margin: 10px auto;
+}
+
+.login-form .form-group input, .registration-form .form-group input {
+  font-family: "Montserrat", sans-serif;
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-radius: 2px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.login-form .form-group input:focus, .registration-form .form-group input:focus {
+  -webkit-box-shadow: 0px 0px 3px 1px #000;
+          box-shadow: 0px 0px 3px 1px #000;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.login-form .button_container, .registration-form .button_container {
+  display: block;
+  width: 80%;
+  margin: 0px auto;
+  padding-top: 10px;
+}
+
+.login-form .button_container .registrate, .registration-form .button_container .registrate {
   float: right;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: none;
+  outline: none;
+  background-color: #FFF;
+}
+
+.login-form .button_container .registrate:hover, .registration-form .button_container .registrate:hover {
+  background-color: #dbdbdb;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.login-form .button_container .registrate:active, .registration-form .button_container .registrate:active {
+  background-color: #dbdbdb;
+  outline: none;
+  border: none;
+}
+
+.login-form .button_container .registrate a, .registration-form .button_container .registrate a {
+  font-family: "Montserrat", sans-serif;
+  text-decoration: none;
+  color: #000;
 }
 
 .error {
@@ -265,10 +319,12 @@
   width: 98%;
   margin: 0px auto;
   margin-top: 5px;
+  margin-left: 0;
   padding-bottom: 5px;
   -webkit-box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
   box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
   border-radius: 3px;
+  border-top-left-radius: 0px;
   background-color: #FFF;
   text-align: center;
 }
@@ -280,6 +336,7 @@
   font-family: "Montserrat", sans-serif;
   color: #FFF;
   border-radius: 3px 3px 0px 0px;
+  border-top-left-radius: 0px;
 }
 
 .right_sidebar p {
@@ -353,10 +410,12 @@
   width: 98%;
   margin: 0px auto;
   margin-top: 5px;
+  margin-right: 0;
   padding-bottom: 5px;
   -webkit-box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
   box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
   border-radius: 3px;
+  border-top-right-radius: 0px;
   background-color: #FFF;
   text-align: center;
 }
@@ -371,7 +430,7 @@
   color: #FFF;
   background-color: #EA2027;
   border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
+  border-top-right-radius: 0px;
 }
 
 .left-sidebar .calendar_container #calendar {
@@ -379,6 +438,8 @@
   display: block;
   width: 98%;
   margin: 1%;
+  -webkit-box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
+  box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
 }
 
 .left-sidebar .calendar_container #calendar tbody {
@@ -443,17 +504,17 @@
 }
 
 .main {
-  position: relative;
-  display: block;
-  width: 98%;
-  padding-top: 1%;
-  margin: 0 auto;
+  background-color: rgba(100, 100, 100, 0.4);
+  margin: 0;
+  margin-top: 5px;
 }
 
 .main .edit_profile_container {
   -webkit-box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
   box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
   border-radius: 3px;
+  margin: 1%;
+  background-color: #FFF;
 }
 
 .main .edit_profile_container h1 {
@@ -505,6 +566,7 @@
   float: left;
   width: 31%;
   margin: 1%;
+  background-color: #FFF;
   -webkit-box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
   box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
   border-radius: 3px;
@@ -557,14 +619,32 @@
   display: none;
 }
 
+.main .user .controls #control_form #visit {
+  background-color: #878484;
+  color: #FFF;
+}
+
+.main .user .controls #control_form #visit:hover {
+  background-color: #565454;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.main .user .controls #control_form #visit:focus {
+  background-color: #565454 !important;
+}
+
 .main .profile {
-  width: 100%;
+  width: 98%;
+  margin: 1%;
   display: inline-block;
+  background-color: #FFF;
   -webkit-box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
   box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
 }
 
 .main .profile h1 {
+  width: 100%;
   background-color: #fc3f45;
   text-align: center;
   font-family: "Montserrat", sans-serif;

@@ -28,11 +28,33 @@
                         </div>
                         <div class="collapse navbar-collapse" id="main-menu">
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="home">Sākums</a></li>
-                                <li><a href="">Items</a></li>
-                                <li><a href="">Items</a></li> 
-                                <li><a href="">Items</a></li>
-                                <li ><a href="">Items</a></li> 
+                                <li class="active">
+                                    <a href="home">
+                                        <span class="glyphicon glyphicon-home"></span>
+                                        Lietotāji
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <span class="glyphicon glyphicon-envelope"></span>
+                                        Vēstules
+                                    </a></li>
+                                <li>
+                                    <a href="">
+                                        <span class="glyphicon glyphicon-cog"></span>
+                                        Tiesības
+                                    </a>
+                                </li> 
+                                <li>
+                                    <a href="">
+                                        
+                                    </a>
+                                </li>
+                                <li >
+                                    <a href="">
+                                        
+                                    </a>
+                                </li> 
                             </ul>
                         </div>
                     </div>

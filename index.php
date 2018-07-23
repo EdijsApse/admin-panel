@@ -29,8 +29,10 @@
 						<label for="password">Parole:</label>
 						<input type="password" class="form-control" id="password" name="password" autocomplete="password">
 					</div>
-					<button type="submit" class="btn btn-default login" name="login">Ieiet <span class="glyphicon glyphicon-log-in"></span></button>
-					<button type="submit" class="btn btn-primary registrate" name="registrate">Reģistrēties</button>
+					<div class="button_container">
+						<button type="submit" class="btn btn-default login" name="login">Ieiet <span class="glyphicon glyphicon-log-in"></span></button>
+						<button type="submit" class="btn btn-default registrate" name="registrate">Reģistrēties</button>
+					</div>	
 				</form>
 			</div>
 		</div>

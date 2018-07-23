@@ -32,31 +32,27 @@
         </div>
     </div>
     <div class="container-fluid">
-        <div class="navbar navbar-inerse">
-            <?php 
-                template::get_menu();
-            ?>
-        </div>
+        <?php 
+            template::get_menu();
+        ?>
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3 left">
                 <?php
                     template::get_left_sidebar();
                 ?>
             </div>
-            <div class="col-md-6">
-                <div class="main">
-                    <?php
-                        if(isset($_SESSION["role"])){
-                            $role = $_SESSION["role"];
-                        }
-                        else{
-                            $role = "Guest";
-                        }
-                        $database->get_all_users($role);
-                    ?>
-                </div>
+            <div class="col-md-6 main">
+                <?php
+                    if(isset($_SESSION["role"])){
+                        $role = $_SESSION["role"];
+                    }
+                    else{
+                        $role = "Guest";
+                    }
+                    $database->get_all_users($role);
+                ?>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 right">
                 <?php
                     $template->get_right_sidebar($_SESSION["user_id"],$_SESSION["user"],$_SESSION["email"],$_SESSION["password"],$_SESSION["image"],$_SESSION["regdate"],$_SESSION["role"]);
                 ?>
