@@ -27,8 +27,8 @@
         <div class="message_container">
         </div>
     </div>
-    <div class="event_container">
-        <div class="days_registered_users">
+    <div class="preview_container">
+        <div class="preview">
         </div>
     </div>
     <div class="container-fluid">

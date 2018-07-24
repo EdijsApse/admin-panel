@@ -13,7 +13,7 @@
                                   supported by Chrome and Opera */
 }
 
-.login-form .button_container .registrate_user, .registration-form .button_container .registrate_user, .login-form .button_container .login, .registration-form .button_container .login, .right_sidebar #image_upload_form button, .right_sidebar #edit_profile_form button, .right_sidebar #log_out_form button, .main .edit_profile_container .edit_profile .default_button, .main .user .controls #control_form #visit, .main .user .controls #control_form #edit, .main .profile .delete_user button {
+.send_message_container .send_message_form .button_container .send, .sent_message_container .messages .close_sent_messages, .login-form .button_container .registrate_user, .registration-form .button_container .registrate_user, .login-form .button_container .login, .registration-form .button_container .login, .right_sidebar #image_upload_form button, .right_sidebar #edit_profile_form button, .right_sidebar #log_out_form button, .main .message_container .sent_message, .main .message_container .send_message, .main .edit_profile_container .edit_profile .default_button, .main .user .controls #control_form #visit, .main .user .controls #control_form #edit, .main .profile .delete_user button {
   background-color: #e51212;
   border: none;
   outline: none;
@@ -22,14 +22,14 @@
   color: #FFF;
 }
 
-.login-form .button_container .registrate_user:hover, .registration-form .button_container .registrate_user:hover, .login-form .button_container .login:hover, .registration-form .button_container .login:hover, .right_sidebar #image_upload_form button:hover, .right_sidebar #edit_profile_form button:hover, .right_sidebar #log_out_form button:hover, .main .edit_profile_container .edit_profile .default_button:hover, .main .user .controls #control_form #visit:hover, .main .user .controls #control_form #edit:hover, .main .profile .delete_user button:hover {
+.send_message_container .send_message_form .button_container .send:hover, .sent_message_container .messages .close_sent_messages:hover, .login-form .button_container .registrate_user:hover, .registration-form .button_container .registrate_user:hover, .login-form .button_container .login:hover, .registration-form .button_container .login:hover, .right_sidebar #image_upload_form button:hover, .right_sidebar #edit_profile_form button:hover, .right_sidebar #log_out_form button:hover, .main .message_container .sent_message:hover, .main .message_container .send_message:hover, .main .edit_profile_container .edit_profile .default_button:hover, .main .user .controls #control_form #visit:hover, .main .user .controls #control_form #edit:hover, .main .profile .delete_user button:hover {
   background-color: #fc3f45;
   border: none;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
-.login-form .button_container .registrate_user:focus, .registration-form .button_container .registrate_user:focus, .login-form .button_container .login:focus, .registration-form .button_container .login:focus, .right_sidebar #image_upload_form button:focus, .right_sidebar #edit_profile_form button:focus, .right_sidebar #log_out_form button:focus, .main .edit_profile_container .edit_profile .default_button:focus, .main .user .controls #control_form #visit:focus, .main .user .controls #control_form #edit:focus, .main .profile .delete_user button:focus {
+.send_message_container .send_message_form .button_container .send:focus, .sent_message_container .messages .close_sent_messages:focus, .login-form .button_container .registrate_user:focus, .registration-form .button_container .registrate_user:focus, .login-form .button_container .login:focus, .registration-form .button_container .login:focus, .right_sidebar #image_upload_form button:focus, .right_sidebar #edit_profile_form button:focus, .right_sidebar #log_out_form button:focus, .main .message_container .sent_message:focus, .main .message_container .send_message:focus, .main .edit_profile_container .edit_profile .default_button:focus, .main .user .controls #control_form #visit:focus, .main .user .controls #control_form #edit:focus, .main .profile .delete_user button:focus {
   outline: none !important;
   background-color: #fc3f45 !important;
 }
@@ -58,7 +58,135 @@ body {
   background-image: url("/images/background.png");
 }
 
-.event_container {
+.send_message_container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 2;
+}
+
+.send_message_container .send_message_form {
+  position: relative;
+  top: 100px;
+  width: 50%;
+  padding: 5px;
+  margin: 0 auto;
+  background-color: #FFF;
+  font-family: "Montserrat", sans-serif;
+}
+
+.send_message_container .send_message_form .retrieved_users {
+  width: 100%;
+  display: inline-block;
+}
+
+.send_message_container .send_message_form .retrieved_users .user {
+  float: left;
+  width: 14%;
+  margin: 1%;
+}
+
+.send_message_container .send_message_form .retrieved_users .user:first-of-type {
+  margin-left: 2%;
+}
+
+.send_message_container .send_message_form .retrieved_users .user img {
+  width: 100%;
+}
+
+.send_message_container .send_message_form .retrieved_users .user p {
+  font-size: 14px;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.send_message_container .send_message_form #message_content {
+  width: 100%;
+  height: 100px;
+  border: 1px solid #ccc;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  font-family: "Montserrat", sans-serif;
+  padding: 5px;
+  resize: none;
+}
+
+.send_message_container .send_message_form .button_container {
+  display: block;
+  width: 100%;
+  margin: 0px auto;
+  padding-top: 10px;
+}
+
+.send_message_container .send_message_form .button_container .cancel {
+  float: right;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: none;
+  outline: none;
+  -webkit-box-shadow: 0px 0px 1px 0px #666;
+          box-shadow: 0px 0px 1px 0px #666;
+  background-color: #FFF;
+}
+
+.send_message_container .send_message_form .button_container .cancel:hover {
+  background-color: #dbdbdb;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.send_message_container .send_message_form .button_container .cancel:active {
+  background-color: #dbdbdb;
+  outline: none;
+  border: none;
+}
+
+.sent_message_container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 2;
+}
+
+.sent_message_container .messages {
+  position: relative;
+  top: 100px;
+  width: 50%;
+  padding: 5px;
+  margin: 0 auto;
+  background-color: #FFF;
+  font-family: "Montserrat", sans-serif;
+}
+
+.sent_message_container .messages .message {
+  -webkit-box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
+  box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
+  margin-bottom: 10px;
+}
+
+.sent_message_container .messages .message h1 {
+  width: 100%;
+  background-color: #EA2027;
+  padding: 5px;
+  margin: 0;
+  font-size: 30px;
+  text-align: center;
+  color: #FFF;
+  font-family: "Montserrat", sans-serif;
+}
+
+.sent_message_container .messages .message p {
+  margin: 5px;
+  text-align: justify;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+}
+
+.preview_container {
   position: fixed;
   display: none;
   width: 100%;
@@ -67,17 +195,17 @@ body {
   z-index: 1;
 }
 
-.event_container .days_registered_users {
+.preview_container .preview {
   position: relative;
   width: 50%;
   top: 100px;
-  display: block;
+  display: table;
   margin: 0 auto;
   z-index: 2;
   background-color: #FFF;
 }
 
-.event_container .days_registered_users .user {
+.preview_container .preview .user {
   position: relative;
   display: block;
   float: left;
@@ -89,23 +217,23 @@ body {
   border-radius: 3px;
 }
 
-.event_container .days_registered_users .user .user_image {
+.preview_container .preview .user .user_image {
   position: relative;
   width: 98%;
   margin: 1%;
 }
 
-.event_container .days_registered_users .user .user_image img {
+.preview_container .preview .user .user_image img {
   width: 100%;
 }
 
-.event_container .days_registered_users .user .user_details {
+.preview_container .preview .user .user_details {
   display: block;
   padding: 0;
   margin: 0;
 }
 
-.event_container .days_registered_users .user .user_details p {
+.preview_container .preview .user .user_details p {
   text-align: center;
   font-family: "Montserrat", sans-serif;
   padding: 2px;
@@ -507,6 +635,64 @@ body {
   background-color: rgba(100, 100, 100, 0.4);
   margin: 0;
   margin-top: 5px;
+}
+
+.main .message_container {
+  display: inline-block;
+  width: 100%;
+  margin: 5px;
+  background-color: #FFF;
+}
+
+.main .message_container .sent_message {
+  float: left;
+  margin: 5px;
+  font-size: 16px;
+}
+
+.main .message_container .sent_message span {
+  margin: 5px;
+  margin-left: 0;
+}
+
+.main .message_container .send_message {
+  float: right;
+  margin: 5px;
+  font-size: 16px;
+}
+
+.main .message_container .send_message span {
+  margin: 5px;
+  margin-left: 0;
+}
+
+.main .message_container .all_messages {
+  clear: both;
+  padding: 5px;
+}
+
+.main .message_container .all_messages .message {
+  -webkit-box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
+  box-shadow: 0px 0px 3px 1px rgba(100, 100, 100, 0.4);
+  margin-bottom: 10px;
+}
+
+.main .message_container .all_messages .message h1 {
+  width: 100%;
+  background-color: #EA2027;
+  padding: 5px;
+  margin: 0;
+  font-size: 30px;
+  text-align: center;
+  color: #FFF;
+  font-family: "Montserrat", sans-serif;
+}
+
+.main .message_container .all_messages .message p {
+  margin: 5px;
+  text-align: justify;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
 }
 
 .main .edit_profile_container {

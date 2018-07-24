@@ -11,6 +11,7 @@
                 <script src="./libs/angularJS/angular.min.js"></script>
                 <script src="./js/choose_image.js"></script>
                 <script src="./js/ajax_calls.js"></script>
+                <script src="./js/effects.js"></script>
                 <script src="plugins/js/effects.js"></script>
                 <script src="plugins/js/cal_object.js"></script>
                 <link href="./css/style.css" rel="stylesheet">
@@ -35,7 +36,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="">
+                                    <a href="messages">
                                         <span class="glyphicon glyphicon-envelope"></span>
                                         Vēstules
                                     </a></li>

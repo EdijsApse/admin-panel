@@ -207,11 +207,11 @@ function calendar_object(){
 							$(image_container).append(image);
 							$(user).addClass("user");
 							$(user).append(image_container).append(user_detail);
-							$(".days_registered_users").append(user);
+							$(".preview").append(user);
 					}
-					$(".event_container").fadeIn("fast");
-					$(".event_container").click(function(){
-						$(".days_registered_users > .user").remove();
+					$(".preview_container").fadeIn("fast");
+					$(".preview_container").click(function(){
+						$(".preview > .user").remove();
 						$(this).fadeOut();
 					});
 				}
