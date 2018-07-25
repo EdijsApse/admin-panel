@@ -192,6 +192,12 @@ body {
   font-size: 18px;
 }
 
+.sent_message_container .messages .close_sent_messages {
+  margin-top: 5px;
+  display: block;
+  clear: both;
+}
+
 .preview_container {
   position: fixed;
   display: none;

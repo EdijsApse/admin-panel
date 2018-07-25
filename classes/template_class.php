@@ -249,20 +249,10 @@
                 </div>';
         }
         static function get_my_sent_messages(){
-            echo '<div class="messages">
-                    <div class="message">
-                        <h1>Virssraksts</h1>
-                        <p>Saturs</p>
-                    </div>
-                    <div class="message">
-                        <h1>Virssraksts</h1>
-                        <p>Saturs</p>
-                    </div>
-                    <div class="message">
-                        <h1>Virssraksts</h1>
-                        <p>Saturs</p>
-                    </div>
-                    <button type="button" class="btn btn-default close_sent_messages">Aizvērt</button>
+            $database = new database();
+            echo '<div class="messages">';
+            $database->get_my_sent_messages($_SESSION["user_id"]);
+            echo '<button type="button" class="btn btn-default close_sent_messages">Aizvērt</button>
                 </div>';
         }
     }

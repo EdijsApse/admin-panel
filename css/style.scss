@@ -195,6 +195,9 @@ body{
         }
         .close_sent_messages{
             @extend %default_button;
+            margin-top:5px;
+            display: block;
+            clear: both;
         }
     }
 }
