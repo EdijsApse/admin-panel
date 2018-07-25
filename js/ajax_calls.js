@@ -85,13 +85,12 @@ $(document).ready(function(){
     $("input[name='search_user']").keyup(function(e){
         var user_input = $(this).val(),
             presed_key = e.which;
-        console.log(presed_key);
         if(user_input == ""){
             user_input = " ";
         }
-        if(presed_key == 8 || presed_key == 46){
+        //if(presed_key == 8 || presed_key == 46){
             //e.preventDefault();//Kas notiek ja tiek dzēsta ievades laukā esošā vērtība
-        }
+        //}
         $.ajax({
             method:"POST",
             url:"ajax_requests.php",
@@ -106,6 +105,7 @@ $(document).ready(function(){
             },
             complete:function(xhr){
                 var users,
+                    user_to,
                     display_user = false;
                 try{
                     users = JSON.parse(xhr.responseText);
@@ -119,7 +119,45 @@ $(document).ready(function(){
                     for(var i=0; i < users.length; i++){
                         dsiplay_user(users[i]);
                     }
+                    $(".retrieved_users > .user").click(function(){
+                        if($(this).css("box-shadow") == "none"){
+                            $(".retrieved_users > .user").css("box-shadow","none");
+                            $(this).css("box-shadow","0px 0px 3px 1px #4286f4");
+                            $("button[name='send']").val($(this).children("span").text());
+                        }
+                        else{
+                            $("button[name='send']").val("");
+                            $(this).css("box-shadow","none");
+                        }
+                    });
                 }
+            }
+        })
+    })
+    $("button[name='send']").click(function(){
+        var user = $(this).val(),
+            message_title = $("input[name='title']").val(),
+            message_content = $("#message_content").val();
+        $.ajax({
+            method:"POST",
+            url:"ajax_requests.php",
+            data:{
+                purpose:"send_message",
+                user_to:user,
+                msg_title:message_title,
+                msg_content:message_content
+            },
+            error:function(xhr){
+                $(".notification > .message_container").html(xhr.responseText);
+                $(".notification").fadeIn("fast");
+                add_close_event();
+            },
+            success:function(xhr){
+            },
+            complete:function(xhr){
+                $(".notification > .message_container").html(xhr.responseText);
+                $(".notification").fadeIn("fast");
+                add_close_event();
             }
         })
     })
@@ -138,10 +176,12 @@ function add_close_event(){
 function dsiplay_user(user_object){
     var user_container = document.createElement("div"),
         user_name = document.createElement("p"),
+        user_value = document.createElement("span"),
         user_image = document.createElement("img");
         $(user_container).addClass("user");
+        $(user_value).html(user_object.usr_id);
         $(user_name).text(user_object.usr_name);
         $(user_image).attr("src",user_object.usr_image);
-        $(user_container).append(user_image, user_name);
+        $(user_container).append(user_image, user_name, user_value);
         $(".retrieved_users").prepend(user_container);
 }

@@ -42,7 +42,7 @@
 			}
 			public function search_user($name){
 				$connection = main::create_connection();
-				$sql = 'SELECT usr_name, usr_image
+				$sql = 'SELECT usr_id, usr_name, usr_image
 						FROM reg_users
 						WHERE usr_name LIKE "'.$name.'%"';
 				$result = $connection->query($sql);
@@ -202,6 +202,7 @@
 					$template->show_notification("Lietotāja informācija netika atjaunota!");
 				}
 				$connection->close();
+				session_start();
 				if($_SESSION["user_id"] == $user_id){//If loged user changes his info
 					$connection = main::create_connection();
 					$sql = 'SELECT role_name
@@ -255,6 +256,19 @@
 				}
 				$connection->close();
 				print_r(json_encode($user_arr));//So i can decode in JS
+			}
+			public function add_message($from, $to, $title, $content){
+				$connection = main::create_connection();
+				$template = new template();
+				$sql = "INSERT INTO usr_messages (msg_title, msg_content, msg_from, msg_to)
+						VALUES ('".$title."','".$content."','".$from."','".$to."')";
+				if($connection->query($sql) === TRUE){
+					$template->show_notification("Vēstule nosūtīta!");
+				}
+				else{
+					$template->show_notification("Vēstule diemžēl netika nosūtīta!");
+				}
+				$connection->close();
 			}
     }
 ?>

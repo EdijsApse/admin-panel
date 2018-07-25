@@ -90,6 +90,15 @@ if(isset($_POST["purpose"])){
         case "get_users":
             $database->search_user($_POST["user_name"]);
             break;
+        case "send_message":
+            session_start();
+            if($_SESSION["user_id"] == $_POST["user_to"]){
+                $template->show_notification("Diemžēl iespēja sev sūtīt vēstuli nepastāv!");
+            }
+            else{
+                $database->add_message($_SESSION["user_id"],$_POST["user_to"],$_POST["msg_title"],$_POST["msg_content"]);
+            }
+            break;
         default:
             die();
     }

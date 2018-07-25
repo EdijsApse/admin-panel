@@ -22,6 +22,8 @@
         $template->get_head("Messages");
 	?>
 </head>
+<script>
+</script>
 <body>
     <div class="notification">
         <div class="message_container">
