@@ -1,4 +1,5 @@
 <?php
+    require_once("database_class.php");
     class template{
         public function get_head($page_title){
                 echo '<meta charset="UTF-8">
@@ -225,7 +226,14 @@
                     '.$delete_user.'
                 </div>';
         }
+        public function message($title, $content){
+            echo '<div class="message">
+                    <h1>'.$title.'</h1>
+                    <p>'.$content.'</p>
+                </div>';
+        }
         static function get_messages(){
+            $database = new database();
             echo '<div class="message_container">
                     <button type="button" class="btn btn-default sent_message">
                         <span class="glyphicon glyphicon-folder-open"></span>
@@ -235,16 +243,9 @@
                         <span class="glyphicon glyphicon-plus"></span>
                         Rakstīt vēstuli
                     </button>
-                    <div class="all_messages">
-                        <div class="message">
-                            <h1>Title</h1>
-                            <p>Saturs</p>
-                        </div>
-                        <div class="message">
-                            <h1>Title</h1>
-                            <p>Saturs</p>
-                        </div>
-                    </div>
+                    <div class="all_messages">';
+            $database->get_messages($_SESSION["user_id"]);
+            echo '</div>
                 </div>';
         }
         static function get_my_sent_messages(){

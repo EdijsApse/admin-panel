@@ -613,6 +613,7 @@ body{
         width:100%;
         margin:5px 0;
         background-color:#FFF;
+        font-family: $primary_font;
         .sent_message{
             @extend %default_button;
             float:left;

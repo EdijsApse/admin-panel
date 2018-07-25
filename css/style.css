@@ -655,6 +655,7 @@ body {
   width: 100%;
   margin: 5px 0;
   background-color: #FFF;
+  font-family: "Montserrat", sans-serif;
 }
 
 .main .message_container .sent_message {

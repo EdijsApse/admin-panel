@@ -270,5 +270,23 @@
 				}
 				$connection->close();
 			}
+			public function get_messages($user){
+				$connection = main::create_connection();
+				$template = new template();
+				$sql = 'SELECT msg_title, msg_content, msg_to
+						FROM usr_messages
+						WHERE msg_to = "'.$user.'"';
+				$results = $connection->query($sql);
+				$message_arr = array();
+				if($results->num_rows > 0){
+					while($message = $results->fetch_assoc()){
+						$template->message($message["msg_title"],$message["msg_content"]);
+					}
+				}
+				else{
+					echo "Neesi saņēmis nevienu vēstuli!";
+				}
+				$connection->close();
+			}
     }
 ?>
