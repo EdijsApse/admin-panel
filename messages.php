@@ -29,12 +29,13 @@
     </div>
     <div class="preview_container">
         <div class="preview">
+            <button class="btn btn-default close_users">Aizvērt logu</button>
         </div>
     </div>
     <div class="send_message_container">
         <form class="send_message_form" id="send_message_form">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Meklēt lietotāju...">
+                <input type="text" class="form-control" name="search_user" placeholder="Meklēt lietotāju...">
                 <div class="input-group-btn">
                     <button class="btn btn-default" type="button">
                         <i class="glyphicon glyphicon-search"></i>
@@ -42,30 +43,6 @@
                 </div>
             </div>
             <div class="retrieved_users">
-                <div class="user">
-                    <img src="images/add_photo"/>
-                    <p>User Name</p>
-                </div>
-                <div class="user">
-                    <img src="images/add_photo"/>
-                    <p>User Name</p>
-                </div>
-                <div class="user">
-                    <img src="images/add_photo"/>
-                    <p>User Name</p>
-                </div>
-                <div class="user">
-                    <img src="images/add_photo"/>
-                    <p>User Name</p>
-                </div>
-                <div class="user">
-                    <img src="images/add_photo"/>
-                    <p>User Name</p>
-                </div>
-                <div class="user">
-                    <img src="images/add_photo"/>
-                    <p>User Name</p>
-                </div>
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" name="title" autocomplete="title" placeholder="Vēstules virsraksts">
@@ -78,21 +55,9 @@
         </form>
     </div>
     <div class="sent_message_container">
-        <div class="messages">
-            <div class="message">
-                <h1>Virssraksts</h1>
-                <p>Saturs</p>
-            </div>
-            <div class="message">
-                <h1>Virssraksts</h1>
-                <p>Saturs</p>
-            </div>
-            <div class="message">
-                <h1>Virssraksts</h1>
-                <p>Saturs</p>
-            </div>
-            <button type="button" class="btn btn-default close_sent_messages">Aizvērt</button>
-        </div>
+        <?php
+            template::get_my_sent_messages();
+        ?>
     </div>
     <div class="container-fluid">
         <?php 
@@ -105,26 +70,9 @@
                 ?>
             </div>
             <div class="col-md-6 main">
-                <div class="message_container">
-                    <button type="button" class="btn btn-default sent_message">
-                        <span class="glyphicon glyphicon-folder-open"></span>
-                        Nosūtītās vēstules
-                    </button>
-                    <button type="button" class="btn btn-default send_message">
-                        <span class="glyphicon glyphicon-plus"></span>
-                        Rakstīt vēstuli
-                    </button>
-                    <div class="all_messages">
-                        <div class="message">
-                            <h1>Title</h1>
-                            <p>Saturs</p>
-                        </div>
-                        <div class="message">
-                            <h1>Title</h1>
-                            <p>Saturs</p>
-                        </div>
-                    </div>
-                </div>
+                <?php 
+                    template::get_messages();
+                ?>
             </div>
             <div class="col-md-3 right">
                 <?php

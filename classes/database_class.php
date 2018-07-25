@@ -40,6 +40,24 @@
 				}
 				$connection->close();
 			}
+			public function search_user($name){
+				$connection = main::create_connection();
+				$sql = 'SELECT usr_name, usr_image
+						FROM reg_users
+						WHERE usr_name LIKE "'.$name.'%"';
+				$result = $connection->query($sql);
+				$users = array();
+				if($result->num_rows > 0){
+					while($user = $result->fetch_assoc()){
+						array_push($users, $user);
+					}
+					print_r(json_encode($users));
+				}
+				else{
+					echo "Neviens lietotājs netika atrasts!";
+				}
+				$connection->close();
+			}
 			public function change_image($user_email,$new_image){
 				$connection = main::create_connection();
 				$template = new template();

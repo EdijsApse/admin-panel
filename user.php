@@ -23,6 +23,7 @@
 <body>
     <div class="preview_container">
         <div class="preview">
+            <button class="btn btn-default close_users">Aizvērt logu</button>
         </div>
     </div>
     <div class="notification">

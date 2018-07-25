@@ -8,8 +8,7 @@ $template = new template();
 $validation = new validation();
 $main = new main();
 set_error_handler("main::error_handler");//Default error display function
-session_start();
-if(isset($_SESSION["user"])){
+if(isset($_POST["purpose"])){
     switch($_POST["purpose"]){
         case "change_user":
             $user_old_information = $database->get_user_information($_POST["user_id"]);
@@ -24,7 +23,7 @@ if(isset($_SESSION["user"])){
                     if($user_old_information[$key] != $value){
                         switch($key){
                             case "user_name":{
-
+    
                                 $validation->is_valid_name($value);
                                 $validation->is_long_enough($value);
                                 break;
@@ -88,10 +87,13 @@ if(isset($_SESSION["user"])){
         case "day_event":
             $database->get_specific_day_event($_POST["correct_date"]);
             break;
+        case "get_users":
+            $database->search_user($_POST["user_name"]);
+            break;
         default:
             die();
     }
 }
 else{
-    header("location:/");
+    header("location:/home");
 }

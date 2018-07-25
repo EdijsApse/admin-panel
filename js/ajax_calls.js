@@ -82,6 +82,47 @@ $(document).ready(function(){
             }
         })
     })
+    $("input[name='search_user']").keyup(function(e){
+        var user_input = $(this).val(),
+            presed_key = e.which;
+        console.log(presed_key);
+        if(user_input == ""){
+            user_input = " ";
+        }
+        if(presed_key == 8 || presed_key == 46){
+            //e.preventDefault();//Kas notiek ja tiek dzēsta ievades laukā esošā vērtība
+        }
+        $.ajax({
+            method:"POST",
+            url:"ajax_requests.php",
+            data:{
+                purpose:"get_users",
+                user_name:user_input
+            },
+            error:function(){
+
+            },
+            success:function(xhr){
+            },
+            complete:function(xhr){
+                var users,
+                    display_user = false;
+                try{
+                    users = JSON.parse(xhr.responseText);
+                    display_user = true;
+                }
+                catch(errors){
+                    $(".retrieved_users").html(xhr.responseText);
+                }
+                if(display_user == true){
+                    $(".retrieved_users").html("");
+                    for(var i=0; i < users.length; i++){
+                        dsiplay_user(users[i]);
+                    }
+                }
+            }
+        })
+    })
 })
 function add_close_event(){
     $(".close").click(function(){
@@ -93,4 +134,14 @@ function add_close_event(){
             $(this).parent(".message_container").fadeOut("fast");    
         }
     })
+}
+function dsiplay_user(user_object){
+    var user_container = document.createElement("div"),
+        user_name = document.createElement("p"),
+        user_image = document.createElement("img");
+        $(user_container).addClass("user");
+        $(user_name).text(user_object.usr_name);
+        $(user_image).attr("src",user_object.usr_image);
+        $(user_container).append(user_image, user_name);
+        $(".retrieved_users").prepend(user_container);
 }

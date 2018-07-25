@@ -225,5 +225,44 @@
                     '.$delete_user.'
                 </div>';
         }
+        static function get_messages(){
+            echo '<div class="message_container">
+                    <button type="button" class="btn btn-default sent_message">
+                        <span class="glyphicon glyphicon-folder-open"></span>
+                        Nosūtītās vēstules
+                    </button>
+                    <button type="button" class="btn btn-default send_message">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        Rakstīt vēstuli
+                    </button>
+                    <div class="all_messages">
+                        <div class="message">
+                            <h1>Title</h1>
+                            <p>Saturs</p>
+                        </div>
+                        <div class="message">
+                            <h1>Title</h1>
+                            <p>Saturs</p>
+                        </div>
+                    </div>
+                </div>';
+        }
+        static function get_my_sent_messages(){
+            echo '<div class="messages">
+                    <div class="message">
+                        <h1>Virssraksts</h1>
+                        <p>Saturs</p>
+                    </div>
+                    <div class="message">
+                        <h1>Virssraksts</h1>
+                        <p>Saturs</p>
+                    </div>
+                    <div class="message">
+                        <h1>Virssraksts</h1>
+                        <p>Saturs</p>
+                    </div>
+                    <button type="button" class="btn btn-default close_sent_messages">Aizvērt</button>
+                </div>';
+        }
     }
 ?>

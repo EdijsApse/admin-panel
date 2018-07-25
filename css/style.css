@@ -13,7 +13,7 @@
                                   supported by Chrome and Opera */
 }
 
-.send_message_container .send_message_form .button_container .send, .sent_message_container .messages .close_sent_messages, .login-form .button_container .registrate_user, .registration-form .button_container .registrate_user, .login-form .button_container .login, .registration-form .button_container .login, .right_sidebar #image_upload_form button, .right_sidebar #edit_profile_form button, .right_sidebar #log_out_form button, .main .message_container .sent_message, .main .message_container .send_message, .main .edit_profile_container .edit_profile .default_button, .main .user .controls #control_form #visit, .main .user .controls #control_form #edit, .main .profile .delete_user button {
+.send_message_container .send_message_form .button_container .send, .sent_message_container .messages .close_sent_messages, .preview_container .preview .close_users, .login-form .button_container .registrate_user, .registration-form .button_container .registrate_user, .login-form .button_container .login, .registration-form .button_container .login, .right_sidebar #image_upload_form button, .right_sidebar #edit_profile_form button, .right_sidebar #log_out_form button, .main .message_container .sent_message, .main .message_container .send_message, .main .edit_profile_container .edit_profile .default_button, .main .user .controls #control_form #visit, .main .user .controls #control_form #edit, .main .profile .delete_user button {
   background-color: #e51212;
   border: none;
   outline: none;
@@ -22,14 +22,14 @@
   color: #FFF;
 }
 
-.send_message_container .send_message_form .button_container .send:hover, .sent_message_container .messages .close_sent_messages:hover, .login-form .button_container .registrate_user:hover, .registration-form .button_container .registrate_user:hover, .login-form .button_container .login:hover, .registration-form .button_container .login:hover, .right_sidebar #image_upload_form button:hover, .right_sidebar #edit_profile_form button:hover, .right_sidebar #log_out_form button:hover, .main .message_container .sent_message:hover, .main .message_container .send_message:hover, .main .edit_profile_container .edit_profile .default_button:hover, .main .user .controls #control_form #visit:hover, .main .user .controls #control_form #edit:hover, .main .profile .delete_user button:hover {
+.send_message_container .send_message_form .button_container .send:hover, .sent_message_container .messages .close_sent_messages:hover, .preview_container .preview .close_users:hover, .login-form .button_container .registrate_user:hover, .registration-form .button_container .registrate_user:hover, .login-form .button_container .login:hover, .registration-form .button_container .login:hover, .right_sidebar #image_upload_form button:hover, .right_sidebar #edit_profile_form button:hover, .right_sidebar #log_out_form button:hover, .main .message_container .sent_message:hover, .main .message_container .send_message:hover, .main .edit_profile_container .edit_profile .default_button:hover, .main .user .controls #control_form #visit:hover, .main .user .controls #control_form #edit:hover, .main .profile .delete_user button:hover {
   background-color: #fc3f45;
   border: none;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
-.send_message_container .send_message_form .button_container .send:focus, .sent_message_container .messages .close_sent_messages:focus, .login-form .button_container .registrate_user:focus, .registration-form .button_container .registrate_user:focus, .login-form .button_container .login:focus, .registration-form .button_container .login:focus, .right_sidebar #image_upload_form button:focus, .right_sidebar #edit_profile_form button:focus, .right_sidebar #log_out_form button:focus, .main .message_container .sent_message:focus, .main .message_container .send_message:focus, .main .edit_profile_container .edit_profile .default_button:focus, .main .user .controls #control_form #visit:focus, .main .user .controls #control_form #edit:focus, .main .profile .delete_user button:focus {
+.send_message_container .send_message_form .button_container .send:focus, .sent_message_container .messages .close_sent_messages:focus, .preview_container .preview .close_users:focus, .login-form .button_container .registrate_user:focus, .registration-form .button_container .registrate_user:focus, .login-form .button_container .login:focus, .registration-form .button_container .login:focus, .right_sidebar #image_upload_form button:focus, .right_sidebar #edit_profile_form button:focus, .right_sidebar #log_out_form button:focus, .main .message_container .sent_message:focus, .main .message_container .send_message:focus, .main .edit_profile_container .edit_profile .default_button:focus, .main .user .controls #control_form #visit:focus, .main .user .controls #control_form #edit:focus, .main .profile .delete_user button:focus {
   outline: none !important;
   background-color: #fc3f45 !important;
 }
@@ -239,6 +239,12 @@ body {
   padding: 2px;
   font-size: 16px;
   margin: 0;
+}
+
+.preview_container .preview .close_users {
+  clear: both;
+  float: right;
+  margin: 2%;
 }
 
 .notification {
@@ -632,15 +638,16 @@ body {
 }
 
 .main {
+  display: block;
   background-color: rgba(100, 100, 100, 0.4);
-  margin: 0;
+  margin: 0 auto;
   margin-top: 5px;
 }
 
 .main .message_container {
   display: inline-block;
   width: 100%;
-  margin: 5px;
+  margin: 5px 0;
   background-color: #FFF;
 }
 
